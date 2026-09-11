@@ -15,7 +15,7 @@ export default function Home() {
     <div className="min-h-screen bg-white text-[#070019]">
       <main className="max-w-[1440px] mx-auto p-3 sm:p-4 md:p-6 lg:p-8 flex flex-col gap-8 sm:gap-14">
         {/* Hero zone — pattern background fills the white margin around the card */}
-        <div className="relative">
+        <div className="relative lg:-mx-3 xl:-mx-5">
           <div
             aria-hidden="true"
             className="absolute inset-0 -m-3 sm:-m-4 md:-m-6 lg:-m-8 pointer-events-none z-0"
