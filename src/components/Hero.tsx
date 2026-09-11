@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import Navbar from "./Navbar";
 import HeroShowcase from "./HeroShowcase";
+import styles from "./Hero.module.css";
 
 export default function Hero() {
   return (
@@ -121,10 +122,15 @@ export default function Hero() {
         </p>
 
         {/* EXACT Recal Pill Button with microinteractions */}
-        <div className="mt-8 flex items-center justify-center">
+        <div className={`${styles.ctaGroup} mt-8 flex items-center justify-center`}>
+          <svg className={styles.ctaSparkles} viewBox="0 0 58 48" fill="none" aria-hidden="true" focusable="false">
+            <path d="M19 7C19 18 16 22 5 22C16 22 19 26 19 37C19 26 22 22 33 22C22 22 19 18 19 7Z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round" />
+            <path d="M43 1C43 7 41 9 35 9C41 9 43 11 43 17C43 11 45 9 51 9C45 9 43 7 43 1Z" fill="currentColor" fillOpacity=".7" />
+            <circle cx="43" cy="37" r="1.5" fill="currentColor" fillOpacity=".45" />
+          </svg>
           <a
             href="#contacto"
-            className="inline-flex items-center gap-3.5 bg-[#f9f8ff] hover:bg-white text-[#070019] rounded-full pl-2.5 pr-6 py-2 h-12 font-semibold text-sm tracking-tight transition-all duration-300 shadow-[0_10px_25px_-5px_rgba(0,0,0,0.3),0_0_20px_rgba(111,60,255,0.25)] hover:shadow-[0_14px_30px_-5px_rgba(0,0,0,0.4),0_0_30px_rgba(111,60,255,0.4)] hover:scale-[1.02] active:scale-[0.98] group cursor-pointer border border-white/40"
+            className={`${styles.cta} inline-flex items-center gap-3.5 bg-[#f9f8ff] hover:bg-white text-[#070019] rounded-full pl-2.5 pr-6 py-2 h-12 font-semibold text-sm tracking-tight transition-all duration-300 shadow-[0_10px_25px_-5px_rgba(0,0,0,0.3),0_0_20px_rgba(111,60,255,0.25)] hover:shadow-[0_14px_30px_-5px_rgba(0,0,0,0.4),0_0_30px_rgba(111,60,255,0.4)] hover:scale-[1.02] active:scale-[0.98] group cursor-pointer border border-white/40`}
           >
             <span className="w-8 h-8 rounded-full bg-[#6f3cff] flex items-center justify-center text-white transition-all duration-300 group-hover:scale-110 group-hover:bg-[#5f2bee] flex-shrink-0 shadow-sm">
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />

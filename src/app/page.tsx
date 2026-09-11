@@ -18,7 +18,7 @@ export default function Home() {
         <div className="relative lg:-mx-5 xl:-mx-7">
           <div
             aria-hidden="true"
-            className="absolute inset-0 -m-3 sm:-m-4 md:-m-6 lg:-m-8 pointer-events-none z-0"
+            className="absolute inset-0 -m-3 sm:-m-4 md:-m-6 lg:-my-8 lg:-mx-3 xl:-mx-1 pointer-events-none z-0"
             style={{ backgroundImage: patternBg, backgroundSize: "60px 60px" }}
           />
           <Hero />

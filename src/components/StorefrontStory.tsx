@@ -7,7 +7,6 @@ import {
   ArrowUpRight,
   ArrowRight,
   Plus,
-  Minus,
   ArrowUp,
   Check,
   Zap,
@@ -354,7 +353,7 @@ export default function StorefrontStory() {
                 <span className="font-mono text-xs font-bold tracking-wider uppercase text-[#6f3cff] bg-purple-50 border border-purple-200/60 px-3 py-1 rounded-full">
                   01 / Velocidad
                 </span>
-                <div className="w-8 h-8 rounded-full bg-purple-50 text-[#6f3cff] flex items-center justify-center">
+                <div aria-hidden="true" className="w-8 h-8 rounded-full bg-purple-50 text-[#6f3cff] flex items-center justify-center">
                   <Zap className="w-4 h-4" />
                 </div>
               </div>
@@ -376,7 +375,7 @@ export default function StorefrontStory() {
                 <span className="font-mono text-xs font-bold tracking-wider uppercase text-[#6f3cff] bg-purple-50 border border-purple-200/60 px-3 py-1 rounded-full">
                   02 / Compra
                 </span>
-                <div className="w-8 h-8 rounded-full bg-purple-50 text-[#6f3cff] flex items-center justify-center">
+                <div aria-hidden="true" className="w-8 h-8 rounded-full bg-purple-50 text-[#6f3cff] flex items-center justify-center">
                   <ShieldCheck className="w-4 h-4" />
                 </div>
               </div>
@@ -398,7 +397,7 @@ export default function StorefrontStory() {
                 <span className="font-mono text-xs font-bold tracking-wider uppercase text-[#6f3cff] bg-purple-50 border border-purple-200/60 px-3 py-1 rounded-full">
                   03 / Continuidad
                 </span>
-                <div className="w-8 h-8 rounded-full bg-purple-50 text-[#6f3cff] flex items-center justify-center">
+                <div aria-hidden="true" className="w-8 h-8 rounded-full bg-purple-50 text-[#6f3cff] flex items-center justify-center">
                   <Clock className="w-4 h-4" />
                 </div>
               </div>
@@ -831,13 +830,12 @@ export default function StorefrontStory() {
                     <span className="text-lg sm:text-xl font-bold text-[#070019] group-hover:text-[#6f3cff] transition-colors pr-6">
                       {item.q}
                     </span>
-                    <motion.span
-                      animate={{ rotate: isOpen ? 180 : 0 }}
-                      transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                      className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-700 flex-shrink-0 group-hover:bg-[#6f3cff] group-hover:text-white transition-colors"
+                    <span
+                      aria-hidden="true"
+                      className={styles.faqToggle}
                     >
-                      {isOpen ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
-                    </motion.span>
+                      <Plus className="w-4 h-4" />
+                    </span>
                   </button>
 
                   <AnimatePresence initial={false}>

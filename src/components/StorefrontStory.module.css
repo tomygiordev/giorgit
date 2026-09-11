@@ -56,9 +56,12 @@
 .craftItem { padding: 0; }
 .craftItem:nth-child(2) { padding-top: 40px; }
 .craftItem:nth-child(3) { padding-top: 80px; }
-.craftItem > div > div { display: block; margin-bottom: 18px; }
+.craftItem > div > div { position: relative; display: block; margin-bottom: 18px; padding-right: 42px; }
 .craftItem > div > div > span { background: none; border: 0; border-radius: 0; padding: 0; font-size: 10px; font-weight: 400; letter-spacing: .08em; color: #776586; }
-.craftItem > div > div > div { display: none; }
+.craftItem > div > div > div { position: absolute; top: -8px; right: 2px; display: flex; width: 30px; height: 30px; border: 1px solid #d6c7ed; border-radius: 9px; background: #f3edf9; color: #8051b3; transform: rotate(-8deg); transition: transform .25s ease, background .25s ease; }
+.craftItem:nth-child(2) > div > div > div { transform: rotate(7deg); background: #f0eefb; }
+.craftItem:nth-child(3) > div > div > div { transform: rotate(-5deg); background: #f7edf2; border-color: #e6d2de; color: #9a6385; }
+.craftItem:hover > div > div > div { transform: translateY(-2px) rotate(0); }
 .craftItem h4 { font-size: 22px; line-height: 1.2; font-weight: 500; letter-spacing: -.035em; max-width: 250px; }
 .craftItem p { font-size: 14px; line-height: 1.75; color: var(--muted); }
 
@@ -128,6 +131,11 @@
 .plan > div:last-child a, .featuredPlan > div:last-child a { width: auto; gap: 24px; border: 0; border-bottom: 1px solid currentColor; border-radius: 0; background: none; box-shadow: none; padding: 9px 0; font-size: 12px; font-weight: 500; }
 .plan > div:last-child a:hover { color: #6f3cff; }
 .featuredPlan { background: #21162e; color: white; border: 0; padding: 42px 32px; margin: 6px -32px; border-radius: 8px; }
+.featuredPlan::before { content: ""; position: absolute; inset: 0; border: 1px solid #c8a6f333; border-radius: inherit; pointer-events: none; }
+.featuredPlan::after { content: ""; position: absolute; top: 0; left: 32px; width: 84px; height: 2px; border-radius: 2px; background: linear-gradient(90deg, #d7b8ff, #d7b8ff00); pointer-events: none; }
+.plan > div:last-child a svg, .featuredPlan > div:last-child a svg, .contactForm button svg { transition: transform .22s ease, color .22s ease; }
+.plan > div:last-child a:is(:hover, :focus-visible) svg, .featuredPlan > div:last-child a:is(:hover, :focus-visible) svg, .contactForm button:is(:hover, :focus-visible) svg { transform: translate(2px, -2px); }
+.featuredPlan > div:last-child a svg { color: #c9a7f4; }
 .featuredPlan li { border-color: #ffffff26; }
 .featuredPlan > div:last-child a { color: white; }
 .featuredPlan .popular { position: absolute; right: 30px; bottom: 42px; color: #bdb0cf; font-size: 10px; font-weight: 400; display: flex; align-items: center; gap: 8px; }
@@ -140,8 +148,9 @@
 .faq h2 { font-size: clamp(36px, 4vw, 52px); }
 .faq > div > div:first-child > p { max-width: 300px; font-size: 14px; line-height: 1.75; }
 .faq button > span:first-child { font-size: 16px; font-weight: 500; line-height: 1.5; letter-spacing: -.02em; }
-.faq button > span:last-child { background: none; width: 28px; height: 28px; border-radius: 0; }
-.faq button:hover > span:last-child { color: #6f3cff; background: none; }
+.faq button > .faqToggle { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 28px; height: 28px; border: 1px solid #e6ddef; border-radius: 50%; color: #877296; background: #f8f5fb; transition: transform .25s ease, color .25s ease, background .25s ease, border-color .25s ease; }
+.faq button:is(:hover, :focus-visible) > .faqToggle { color: #6f3cff; border-color: #cbb8e7; background: #f0e8fb; }
+.faq button[aria-expanded="true"] > .faqToggle { transform: rotate(45deg); color: #7446a1; background: #eee5f7; border-color: #d8c6e9; }
 .faq > div > div:last-child > div { padding: 18px 0; }
 .faq > div > div:last-child > div:first-child { padding-top: 0; }
 .faq > div > div:last-child p { font-size: 13px; line-height: 1.8; }
@@ -155,6 +164,8 @@
 .contactForm { padding: 0; display: flex; flex-direction: column; gap: 24px; }
 .contactForm label { font-size: 11px; font-weight: 400; color: #c6bace; margin-bottom: 8px; }
 .contactForm :is(input:not([type="hidden"]), select) { border: 0; border-bottom: 1px solid #ffffff40; border-radius: 0; background: transparent; padding: 12px 0; font-size: 14px; }
+.contactForm :is(input:not([type="hidden"]), select):focus { border-bottom-color: #cba9f7; box-shadow: 0 1px 0 #cba9f7; background: linear-gradient(0deg, #cba9f70b, transparent 75%); }
+.contactForm > div:focus-within label { color: #e4ccff; }
 .contactForm select { padding-right: 22px; }
 .contactForm button { background: #f5f0f8; color: #191020; box-shadow: none; border-radius: 4px; font-size: 14px; font-weight: 500; padding: 17px 20px; margin-top: 4px; }
 .contactForm p { text-align: left; font-size: 10px; line-height: 1.6; color: #b6aabd; margin: -10px 0 0; }

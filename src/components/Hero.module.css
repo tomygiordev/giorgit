@@ -1,0 +1,12 @@
+.ctaGroup { position: relative; }
+.ctaSparkles { position: absolute; left: calc(100% + 22px); top: -9px; width: 48px; height: 40px; color: #c7b6ed; transform: rotate(9deg); pointer-events: none; }
+.cta { position: relative; isolation: isolate; overflow: hidden; }
+.cta::after { content: ""; position: absolute; inset: -60% -35%; background: linear-gradient(105deg, transparent 42%, #cbb5ff55 50%, transparent 58%); transform: translateX(-100%); pointer-events: none; }
+.cta:is(:hover, :focus-visible)::after { animation: catchLight .75s ease-out both; }
+.cta:focus-visible { outline: 2px solid #d8c4ff; outline-offset: 5px; }
+@keyframes catchLight { to { transform: translateX(100%); } }
+@media (max-width: 639px) { .ctaSparkles { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .cta, .cta *, .cta::after { animation: none !important; transition: none !important; }
+  .cta:is(:hover, :active), .cta:is(:hover, :active) * { transform: none; }
+}
