@@ -2,115 +2,93 @@
 
 import React from "react";
 import Image from "next/image";
-import { ArrowRight, Sparkles, Play, Shield, Zap, CheckCircle2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import Navbar from "./Navbar";
 import HeroShowcase from "./HeroShowcase";
 
 export default function Hero() {
   return (
-    <section id="solucion" className="relative min-h-screen pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden">
-      {/* Cosmic background with ethereal bottom clouds / fade */}
-      <div className="absolute inset-0 pointer-events-none -z-10">
-        {/* The generated high-res hero background image */}
-        <div className="absolute inset-0 w-full h-[115%]">
-          <Image
-            src="/images/hero-bg.jpg"
-            alt="GiorgIT Ecommerce Cosmos Universe"
-            fill
-            priority
-            className="object-cover object-top opacity-85"
-            quality={90}
-          />
-        </div>
-
-        {/* Ambient Dark Overlays for maximum text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#060713]/70 via-[#060713]/50 to-[#060713]" />
-
-        {/* Radial glow around focal headline */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-violet-600/20 blur-[130px] rounded-full" />
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[300px] bg-indigo-500/15 blur-[90px] rounded-full" />
-
-        {/* Smooth bottom transition to dark page background */}
-        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#060713] via-[#060713]/80 to-transparent" />
+    <section
+      id="soluciones"
+      className="w-full rounded-[24px] sm:rounded-[32px] overflow-hidden relative bg-[#070019] text-white shadow-2xl pt-6 pb-12 sm:pb-16 px-4 sm:px-8 flex flex-col items-center gap-10 md:gap-14"
+    >
+      {/* Background with hero-bg.jpg & atmospheric deep indigo overlay */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <Image
+          src="/images/hero-bg.jpg"
+          alt=""
+          fill
+          priority
+          className="object-cover object-top opacity-55"
+          quality={90}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#070019]/70 via-[#070019]/50 to-[#070019]/95" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Center Headline & Value Proposition */}
-        <div className="text-center max-w-4xl mx-auto flex flex-col items-center">
-          
-          {/* Recal-style sleek announcement pill badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/[0.12] backdrop-blur-md mb-6 hover:bg-white/[0.08] transition-all cursor-pointer shadow-lg shadow-violet-950/40 group">
-            <span className="flex h-2 w-2 relative">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-violet-400" />
-            </span>
-            <span className="text-xs font-medium text-slate-200 tracking-wide">
-              Nueva Generación Ecommerce 2026
-            </span>
-            <span className="text-slate-500">•</span>
-            <span className="text-xs font-semibold text-violet-300 group-hover:text-violet-200 transition-colors flex items-center gap-1">
-              0% Comisiones por venta
-              <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-            </span>
-          </div>
-
-          {/* Main Headline with Instrument Serif Italic Accent */}
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.08] sm:leading-[1.05]">
-            <span className="block">Impulsa tus Ventas Online</span>
-            <span className="block my-1 sm:my-2 font-serif italic font-normal text-violet-300 drop-shadow-[0_2px_20px_rgba(167,139,250,0.3)]">
-              Plataformas de Ecommerce
-            </span>
-            <span className="block text-slate-100">Listas para Escalar</span>
-          </h1>
-
-          {/* Subtitle explaining the solution */}
-          <p className="mt-6 text-base sm:text-xl text-slate-300 max-w-2xl font-normal leading-relaxed">
-            Tiendas online a medida, ultrarrápidas, con checkout sin fricción, pagos locales (Mercado Pago, Stripe) y sin pagar comisiones abusivas por venta.
-          </p>
-
-          {/* Recal-inspired Pill Buttons */}
-          <div className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
-            {/* Primary Sleek Pill Button with circular icon badge */}
-            <a
-              href="#contacto"
-              className="group relative inline-flex items-center justify-between gap-4 pl-6 pr-2 py-2 rounded-full bg-white text-slate-950 font-semibold text-sm hover:bg-slate-100 transition-all duration-300 shadow-xl shadow-white/10 hover:shadow-violet-500/20 hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto"
-            >
-              <span className="tracking-tight font-sans">Lanzar mi Tienda Online</span>
-              <span className="w-9 h-9 rounded-full bg-violet-600 text-white flex items-center justify-center group-hover:bg-violet-700 transition-colors shadow-sm">
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-              </span>
-            </a>
-
-            {/* Secondary Glass Pill Button */}
-            <a
-              href="#showcase"
-              className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-white/[0.06] hover:bg-white/[0.1] border border-white/[0.12] backdrop-blur-md text-white font-medium text-sm transition-all duration-300 w-full sm:w-auto"
-            >
-              <Play className="w-3.5 h-3.5 fill-white text-white" />
-              <span>Ver Demo Interactiva</span>
-            </a>
-          </div>
-
-          {/* Trust bullets */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-slate-400 font-medium">
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-              Sin comisiones porcentuales
-            </span>
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-              Código y base de datos 100% tuya
-            </span>
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-              Lanzamiento en 15 a 20 días
-            </span>
-          </div>
-
-        </div>
-
-        {/* Hero Interactive Showcase directly beneath CTA */}
-        <HeroShowcase />
+      {/* Floating ambient bottom clouds */}
+      <div className="absolute -bottom-10 -left-12 sm:-left-6 w-[340px] sm:w-[500px] md:w-[650px] pointer-events-none z-10 animate-cloud-left opacity-90 select-none">
+        <Image
+          src="/images/cloud-left.png"
+          alt=""
+          width={2737}
+          height={974}
+          priority
+          className="w-full h-auto object-contain"
+        />
       </div>
+
+      <div className="absolute -bottom-12 -right-14 sm:-right-8 w-[380px] sm:w-[560px] md:w-[720px] pointer-events-none z-10 animate-cloud-right opacity-95 select-none">
+        <Image
+          src="/images/cloud-right.png"
+          alt=""
+          width={3802}
+          height={1458}
+          priority
+          className="w-full h-auto object-contain"
+        />
+      </div>
+
+      {/* Soft atmospheric fade at the bottom of the hero chip */}
+      <div className="absolute bottom-0 inset-x-0 h-28 bg-gradient-to-t from-[#070019]/70 to-transparent pointer-events-none z-10" />
+
+      {/* Top Navbar inside Hero Chip */}
+      <Navbar />
+
+      {/* Hero Headline & CTA (NO kicker/eyebrow above the heading) */}
+      <div className="text-center max-w-4xl mx-auto flex flex-col items-center relative z-20">
+        <h1 className="flex flex-col items-center tracking-tight">
+          <span className="font-sans font-medium text-4xl sm:text-6xl md:text-7xl text-[#f9f8ff] tracking-tight leading-[0.95]">
+            Tu Negocio Necesita
+          </span>
+          <span className="font-serif italic font-normal text-5xl sm:text-7xl md:text-8xl text-white tracking-tight leading-[1.0] my-1 sm:my-2">
+            Plataformas de Ecommerce
+          </span>
+          <span className="font-sans font-medium text-4xl sm:text-6xl md:text-7xl text-[#f9f8ff] tracking-tight leading-[0.95]">
+            Listas para Escalar
+          </span>
+        </h1>
+
+        {/* Subtitle */}
+        <p className="mt-6 text-sm sm:text-base md:text-lg text-[#f9f8ff]/80 max-w-2xl font-normal leading-relaxed text-center">
+          Evita meses de desarrollo lento y comisiones abusivas por cada venta. Desarrollamos tiendas online de alto rendimiento: carga en milisegundos, checkout optimizado y pagos integrados.
+        </p>
+
+        {/* EXACT Recal Pill Button */}
+        <div className="mt-8 flex items-center justify-center">
+          <a
+            href="#contacto"
+            className="inline-flex items-center gap-3.5 bg-[#f9f8ff] hover:bg-white text-[#070019] rounded-full pl-2 pr-6 py-2 h-11 font-semibold text-sm tracking-tight transition-all shadow-md group cursor-pointer"
+          >
+            <span className="w-8 h-8 rounded-full bg-[#6f3cff] flex items-center justify-center text-white transition-transform group-hover:scale-105 flex-shrink-0">
+              <ArrowRight className="w-4 h-4" />
+            </span>
+            <span>Lanzar mi Tienda Online</span>
+          </a>
+        </div>
+      </div>
+
+      {/* Hero Interactive Showcase Card (sitting on top of the clouds inside the hero chip) */}
+      <HeroShowcase />
     </section>
   );
 }

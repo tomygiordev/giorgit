@@ -1,149 +1,123 @@
 "use client";
 
 import React, { useState } from "react";
-import { TrendingUp } from "lucide-react";
+import { TrendingUp, Zap, Clock, ShieldCheck, ArrowUpRight, Activity } from "lucide-react";
+import { formatCurrency } from "@/lib/utils";
 
 export default function MetricsTab() {
-  const [timeRange, setTimeRange] = useState<"day" | "week" | "month">("month");
+  const [activeRange, setActiveRange] = useState<"hoy" | "7d" | "30d">("hoy");
+
+  const recentOrders = [
+    { id: "GP-84920", time: "Hace 1 min", amount: 145000, city: "CABA", gateway: "Mercado Pago", latency: "380ms" },
+    { id: "GP-84919", time: "Hace 4 min", amount: 290000, city: "Córdoba", gateway: "Transferencia", latency: "410ms" },
+    { id: "GP-84918", time: "Hace 9 min", amount: 89000, city: "Rosario", gateway: "Stripe USD", latency: "390ms" },
+    { id: "GP-84917", time: "Hace 14 min", amount: 165000, city: "Mendoza", gateway: "Mercado Pago", latency: "375ms" },
+  ];
 
   return (
-    <div className="p-4 sm:p-6 lg:p-8">
-      {/* Header metrics control */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-5 border-b border-white/[0.08]">
+    <div className="p-4 sm:p-6 md:p-8 bg-white text-[#070019]">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-100 mb-6">
         <div>
-          <h3 className="text-base font-bold text-white flex items-center gap-2">
-            Dashboard de Rendimiento & Ventas en Tiempo Real
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-          </h3>
-          <p className="text-xs text-slate-400">
-            Datos procesados en el Edge con sincronización instantánea de transacciones.
-          </p>
-        </div>
-        <div className="flex items-center bg-white/5 border border-white/10 rounded-lg p-0.5 text-xs">
-          <button
-            onClick={() => setTimeRange("day")}
-            className={`px-3 py-1 rounded-md transition-all ${timeRange === "day" ? "bg-violet-600 text-white font-semibold" : "text-slate-400 hover:text-white"}`}
-          >
-            Hoy
-          </button>
-          <button
-            onClick={() => setTimeRange("week")}
-            className={`px-3 py-1 rounded-md transition-all ${timeRange === "week" ? "bg-violet-600 text-white font-semibold" : "text-slate-400 hover:text-white"}`}
-          >
-            7 días
-          </button>
-          <button
-            onClick={() => setTimeRange("month")}
-            className={`px-3 py-1 rounded-md transition-all ${timeRange === "month" ? "bg-violet-600 text-white font-semibold" : "text-slate-400 hover:text-white"}`}
-          >
-            Este Mes
-          </button>
-        </div>
-      </div>
-
-      {/* 4 Cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 my-5">
-        <div className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.08]">
-          <span className="text-xs text-slate-400 font-medium">Facturación Bruta</span>
-          <div className="text-lg sm:text-2xl font-black text-white mt-1">
-            {timeRange === "day" ? "$1.240.500" : timeRange === "week" ? "$6.420.000" : "$18.890.200"}
-          </div>
-          <div className="flex items-center gap-1 text-[11px] text-emerald-400 font-semibold mt-1">
-            <TrendingUp className="w-3 h-3" />
-            <span>+38.4% vs mes ant.</span>
-          </div>
-        </div>
-
-        <div className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.08]">
-          <span className="text-xs text-slate-400 font-medium">Tasa de Conversión</span>
-          <div className="text-lg sm:text-2xl font-black text-violet-300 mt-1">
-            4.82%
-          </div>
-          <div className="text-[11px] text-slate-400 mt-1">
-            Media del sector: 1.2%
-          </div>
-        </div>
-
-        <div className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.08]">
-          <span className="text-xs text-slate-400 font-medium">Ticket Promedio</span>
-          <div className="text-lg sm:text-2xl font-black text-white mt-1">
-            $62.450
-          </div>
-          <div className="flex items-center gap-1 text-[11px] text-emerald-400 font-semibold mt-1">
-            <span>+14.2% cross-sell</span>
-          </div>
-        </div>
-
-        <div className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.08]">
-          <span className="text-xs text-slate-400 font-medium">Comisión Pagada</span>
-          <div className="text-lg sm:text-2xl font-black text-emerald-400 mt-1">
-            $0 ARS
-          </div>
-          <div className="text-[11px] text-slate-400 mt-1">
-            Ahorro aprox: $566.700
-          </div>
-        </div>
-      </div>
-
-      {/* Chart Visual & Recent Orders */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
-        <div className="lg:col-span-7 p-4 rounded-xl bg-white/[0.02] border border-white/[0.06]">
-          <div className="flex items-center justify-between mb-4">
-            <span className="text-xs font-semibold text-white">Curva de Conversión Diaria</span>
-            <span className="text-[11px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded font-mono">
-              Peak 5.4%
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="text-xs font-semibold text-slate-700">Métricas de Tienda en Vivo</span>
+            <span className="text-[10px] font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">
+              Edge Runtime
             </span>
           </div>
-          <div className="flex items-end justify-between h-36 pt-4 px-2 gap-2 border-b border-white/[0.08]">
-            {[
-              { day: "Lun", h: "45%", val: "$2.1M" },
-              { day: "Mar", h: "62%", val: "$2.8M" },
-              { day: "Mié", h: "55%", val: "$2.5M" },
-              { day: "Jue", h: "78%", val: "$3.4M" },
-              { day: "Vie", h: "92%", val: "$4.2M" },
-              { day: "Sáb", h: "85%", val: "$3.9M" },
-              { day: "Dom", h: "68%", val: "$3.1M" },
-            ].map((bar, index) => (
-              <div key={bar.day} className="flex-1 flex flex-col items-center gap-1 group">
-                <div className="text-[10px] text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity font-mono">
-                  {bar.val}
-                </div>
-                <div
-                  style={{ height: bar.h }}
-                  className={`w-full max-w-[28px] rounded-t-md transition-all group-hover:brightness-125 ${
-                    index === 4
-                      ? "bg-gradient-to-t from-violet-600 to-indigo-400 shadow-lg shadow-violet-600/40"
-                      : "bg-white/15 hover:bg-violet-500/50"
-                  }`}
-                />
-                <span className="text-[10px] text-slate-400 font-mono mt-1">{bar.day}</span>
-              </div>
-            ))}
-          </div>
+          <span className="text-xs text-slate-500 mt-0.5 block">
+            Telemetría de rendimiento y conversión de pedidos en tiempo real
+          </span>
         </div>
 
-        <div className="lg:col-span-5 p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] flex flex-col justify-between">
-          <span className="text-xs font-semibold text-white mb-2 block">
-            Últimas Ventas Aprobadas (En Vivo)
-          </span>
-          <div className="space-y-2">
-            {[
-              { item: "Sneakers Velocity (Obsidian)", price: "$145.000", loc: "Palermo, CABA", time: "Hace 1m", badge: "Mercado Pago" },
-              { item: "Backpack Tech Pro", price: "$89.000", loc: "Córdoba Capital", time: "Hace 4m", badge: "Transferencia" },
-              { item: "Gorra Minimalist GiorgIT", price: "$32.000", loc: "Rosario, SF", time: "Hace 9m", badge: "Tarjeta" },
-            ].map((order, i) => (
-              <div key={i} className="flex items-center justify-between p-2 rounded-lg bg-white/[0.02] border border-white/[0.04] text-xs">
-                <div>
-                  <div className="text-white font-medium">{order.item}</div>
-                  <div className="text-[10px] text-slate-400">{order.loc} • {order.time}</div>
-                </div>
-                <div className="text-right">
-                  <div className="text-emerald-400 font-bold">{order.price}</div>
-                  <div className="text-[9px] text-slate-400">{order.badge}</div>
-                </div>
-              </div>
-            ))}
+        <div className="flex items-center gap-1 bg-[#f8f7fc] p-1 rounded-lg border border-slate-200">
+          {(["hoy", "7d", "30d"] as const).map((range) => (
+            <button
+              key={range}
+              onClick={() => setActiveRange(range)}
+              className={`px-2.5 py-1 rounded text-[11px] font-medium transition-all ${
+                activeRange === range
+                  ? "bg-white text-[#070019] shadow-sm font-semibold"
+                  : "text-slate-500 hover:text-slate-800"
+              }`}
+            >
+              {range === "hoy" ? "Hoy" : range === "7d" ? "7 días" : "30 días"}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* 4 Stat Cards */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-6">
+        <div className="p-3.5 rounded-xl bg-[#f8f7fc] border border-slate-200/80">
+          <div className="flex items-center justify-between text-[11px] text-slate-500 mb-1">
+            <span>Conversión</span>
+            <TrendingUp className="w-3.5 h-3.5 text-emerald-600" />
           </div>
+          <div className="text-xl font-bold text-[#070019]">4.8%</div>
+          <div className="text-[10px] text-emerald-600 font-medium mt-0.5">+3.4x vs Shopify</div>
+        </div>
+
+        <div className="p-3.5 rounded-xl bg-[#f8f7fc] border border-slate-200/80">
+          <div className="flex items-center justify-between text-[11px] text-slate-500 mb-1">
+            <span>Velocidad (LCP)</span>
+            <Zap className="w-3.5 h-3.5 text-[#6f3cff]" />
+          </div>
+          <div className="text-xl font-bold text-[#070019]">0.38s</div>
+          <div className="text-[10px] text-[#6f3cff] font-medium mt-0.5">Lighthouse 100/100</div>
+        </div>
+
+        <div className="p-3.5 rounded-xl bg-[#f8f7fc] border border-slate-200/80">
+          <div className="flex items-center justify-between text-[11px] text-slate-500 mb-1">
+            <span>Comisión Pagada</span>
+            <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+          </div>
+          <div className="text-xl font-bold text-emerald-600">$0 ARS</div>
+          <div className="text-[10px] text-emerald-700 font-medium mt-0.5">100% tuyo</div>
+        </div>
+
+        <div className="p-3.5 rounded-xl bg-[#f8f7fc] border border-slate-200/80">
+          <div className="flex items-center justify-between text-[11px] text-slate-500 mb-1">
+            <span>Uptime 2026</span>
+            <Activity className="w-3.5 h-3.5 text-[#6f3cff]" />
+          </div>
+          <div className="text-xl font-bold text-[#070019]">99.98%</div>
+          <div className="text-[10px] text-slate-500 font-medium mt-0.5">0 caídas en HotSale</div>
+        </div>
+      </div>
+
+      {/* Live Orders Stream */}
+      <div>
+        <div className="text-xs font-semibold text-slate-700 mb-2.5">
+          Flujo de Órdenes Recientes:
+        </div>
+        <div className="space-y-2">
+          {recentOrders.map((order) => (
+            <div
+              key={order.id}
+              className="flex items-center justify-between p-2.5 rounded-xl bg-[#f8f7fc] border border-slate-200/80 text-xs hover:border-slate-300 transition-colors"
+            >
+              <div className="flex items-center gap-3">
+                <span className="font-mono font-semibold text-[#070019]">{order.id}</span>
+                <span className="text-slate-400 hidden sm:inline">•</span>
+                <span className="text-slate-600">{order.city}</span>
+                <span className="text-slate-400 hidden sm:inline">•</span>
+                <span className="text-slate-500 text-[11px]">{order.time}</span>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <span className="px-2 py-0.5 rounded text-[10px] font-medium bg-white border border-slate-200 text-slate-700">
+                  {order.gateway}
+                </span>
+                <span className="font-mono text-[10px] text-emerald-700 font-semibold bg-emerald-50 px-1.5 py-0.5 rounded">
+                  {order.latency}
+                </span>
+                <span className="font-bold text-[#070019] sm:min-w-[80px] text-right">
+                  {formatCurrency(order.amount)}
+                </span>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

@@ -19,7 +19,7 @@ const instrumentSerif = Instrument_Serif({
 export const metadata: Metadata = {
   title: "GiorgIT — Soluciones Ecommerce de Alto Rendimiento",
   description:
-    "Agencia de soluciones tecnológicas. Desarrollamos plataformas ecommerce de alta velocidad, sin comisiones por venta, preparadas para escalar y convertir al máximo.",
+    "Desarrollamos tiendas online a medida: carga en milisegundos, checkout optimizado de 1 paso, 0% de comisiones por venta y pagos locales integrados.",
   keywords: [
     "ecommerce",
     "tienda online",
@@ -28,13 +28,12 @@ export const metadata: Metadata = {
     "mercado pago",
     "stripe",
     "tienda a medida",
-    "agencia tecnologia",
     "next.js ecommerce"
   ],
   authors: [{ name: "GiorgIT Tech Solutions" }],
   openGraph: {
     title: "GiorgIT — Plataformas Ecommerce de Alto Rendimiento",
-    description: "Tiendas online a medida, ultrarrápidas, con checkout sin fricción y 0% de comisiones por venta.",
+    description: "Tiendas online de alta velocidad, sin comisiones por venta, preparadas para escalar y convertir al máximo.",
     url: "https://giorgit.com",
     siteName: "GiorgIT",
     locale: "es_ES",
@@ -53,8 +52,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${inter.variable} ${instrumentSerif.variable} dark`}>
-      <body className="min-h-screen bg-[#060713] text-slate-100 font-sans antialiased overflow-x-hidden">
+    <html lang="es" className={`${inter.variable} ${instrumentSerif.variable} scroll-smooth`}>
+      <body className="min-h-screen bg-white text-[#070019] font-sans antialiased overflow-x-hidden">
         {children}
       </body>
     </html>
