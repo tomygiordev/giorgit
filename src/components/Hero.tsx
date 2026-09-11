@@ -25,6 +25,15 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#070019]/70 via-[#070019]/50 to-[#070019]/95" />
       </div>
 
+      {/* Luminous radial cosmic aura at the top center of the hero chip */}
+      <div
+        className="absolute top-0 inset-x-0 h-[520px] pointer-events-none z-[1]"
+        style={{
+          background:
+            "radial-gradient(ellipse 70% 50% at 50% 0%, rgba(124, 58, 237, 0.45) 0%, rgba(111, 60, 255, 0.2) 40%, transparent 70%)",
+        }}
+      />
+
       {/* Floating ambient bottom clouds */}
       <div className="absolute -bottom-10 -left-12 sm:-left-6 w-[340px] sm:w-[500px] md:w-[650px] pointer-events-none z-10 animate-cloud-left opacity-90 select-none">
         <Image
@@ -73,14 +82,14 @@ export default function Hero() {
           Evita meses de desarrollo lento y comisiones abusivas por cada venta. Desarrollamos tiendas online de alto rendimiento: carga en milisegundos, checkout optimizado y pagos integrados.
         </p>
 
-        {/* EXACT Recal Pill Button */}
+        {/* EXACT Recal Pill Button with microinteractions */}
         <div className="mt-8 flex items-center justify-center">
           <a
             href="#contacto"
-            className="inline-flex items-center gap-3.5 bg-[#f9f8ff] hover:bg-white text-[#070019] rounded-full pl-2 pr-6 py-2 h-11 font-semibold text-sm tracking-tight transition-all shadow-md group cursor-pointer"
+            className="inline-flex items-center gap-3.5 bg-[#f9f8ff] hover:bg-white text-[#070019] rounded-full pl-2.5 pr-6 py-2 h-12 font-semibold text-sm tracking-tight transition-all duration-300 shadow-[0_10px_25px_-5px_rgba(0,0,0,0.3),0_0_20px_rgba(111,60,255,0.25)] hover:shadow-[0_14px_30px_-5px_rgba(0,0,0,0.4),0_0_30px_rgba(111,60,255,0.4)] hover:scale-[1.02] active:scale-[0.98] group cursor-pointer border border-white/40"
           >
-            <span className="w-8 h-8 rounded-full bg-[#6f3cff] flex items-center justify-center text-white transition-transform group-hover:scale-105 flex-shrink-0">
-              <ArrowRight className="w-4 h-4" />
+            <span className="w-8 h-8 rounded-full bg-[#6f3cff] flex items-center justify-center text-white transition-all duration-300 group-hover:scale-110 group-hover:bg-[#5f2bee] flex-shrink-0 shadow-sm">
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
             </span>
             <span>Lanzar mi Tienda Online</span>
           </a>

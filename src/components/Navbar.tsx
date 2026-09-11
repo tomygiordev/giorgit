@@ -17,10 +17,34 @@ export default function Navbar() {
 
   return (
     <header className="w-full flex items-center justify-between z-30 relative">
-      {/* Brand: GiorgIT clean typography matching Recal */}
-      <Link href="/" className="flex items-center gap-1 group">
-        <span className="text-[20px] font-medium tracking-tight text-[#f9f8ff] font-sans">
-          Giorg<span className="text-[#a78bfa] group-hover:text-white transition-colors">IT</span>
+      {/* Brand: GiorgIT geometric monogram with violet facet + clean typography */}
+      <Link href="/" className="flex items-center gap-2.5 group">
+        <div className="relative w-8 h-8 rounded-xl bg-[#110729] border border-violet-500/30 flex items-center justify-center shadow-[0_0_15px_rgba(111,60,255,0.35)] group-hover:border-violet-400 group-hover:scale-105 transition-all duration-300 flex-shrink-0">
+          <svg viewBox="0 0 28 28" className="w-5 h-5" fill="none">
+            <defs>
+              <linearGradient id="gBrandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#ffffff" />
+                <stop offset="40%" stopColor="#c4b5fd" />
+                <stop offset="100%" stopColor="#8b5cf6" />
+              </linearGradient>
+              <linearGradient id="gBrandFacet" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#a78bfa" />
+                <stop offset="100%" stopColor="#6f3cff" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M21 8.5C19.2 6.3 16.5 5 13.5 5C8.8 5 5 8.8 5 13.5C5 18.2 8.8 22 13.5 22C17.5 22 20.8 19.2 21.7 15.5H13.5V12.5H24.8C24.9 12.8 25 13.2 25 13.6C25 19.9 19.9 25 13.5 25C7.1 25 2 19.9 2 13.5C2 7.1 7.1 2 13.5 2C17.6 2 21.2 3.8 23.6 6.7L21 8.5Z"
+              fill="url(#gBrandGrad)"
+            />
+            <polygon
+              points="13.5,12.5 24.8,12.5 21.7,15.5 13.5,15.5"
+              fill="url(#gBrandFacet)"
+            />
+          </svg>
+        </div>
+        <span className="text-[20px] font-semibold tracking-tight text-[#f9f8ff] font-sans flex items-center">
+          Giorg<span className="text-white">IT</span>
+          <span className="w-1.5 h-1.5 rounded-full bg-[#a78bfa] ml-1 inline-block shadow-[0_0_8px_#a78bfa]" />
         </span>
       </Link>
 
