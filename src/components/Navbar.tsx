@@ -10,7 +10,7 @@ export default function Navbar() {
   const navLinks = [
     { label: "Soluciones", href: "#soluciones" },
     { label: "Ecommerce", href: "#bento" },
-    { label: "Comparativa", href: "#comparativa" },
+    { label: "Tu tienda", href: "#comparativa" },
     { label: "Precios", href: "#planes" },
     { label: "FAQ", href: "#faq" },
   ];
@@ -22,12 +22,24 @@ export default function Navbar() {
         <div className="relative w-8 h-8 rounded-xl bg-[#110729] border border-violet-500/30 flex items-center justify-center shadow-[0_0_15px_rgba(111,60,255,0.35)] group-hover:border-violet-400 group-hover:scale-105 transition-all duration-300 flex-shrink-0">
           <svg viewBox="0 0 28 28" className="w-5 h-5" fill="none">
             <defs>
-              <linearGradient id="gBrandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <linearGradient
+                id="gBrandGrad"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="100%"
+              >
                 <stop offset="0%" stopColor="#ffffff" />
                 <stop offset="40%" stopColor="#c4b5fd" />
                 <stop offset="100%" stopColor="#8b5cf6" />
               </linearGradient>
-              <linearGradient id="gBrandFacet" x1="0%" y1="0%" x2="100%" y2="100%">
+              <linearGradient
+                id="gBrandFacet"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="100%"
+              >
                 <stop offset="0%" stopColor="#a78bfa" />
                 <stop offset="100%" stopColor="#6f3cff" />
               </linearGradient>

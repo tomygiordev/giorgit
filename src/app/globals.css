@@ -8,9 +8,9 @@
   --color-dark: #070019;
   --color-accent: #6f3cff;
   --color-light: #f9f8ff;
-  --color-surface: #fbfaff;
-  --color-muted: rgba(7, 0, 26, 0.75);
-  --color-border: rgba(7, 0, 26, 0.08);
+  --color-surface: #ffffff;
+  --color-muted: #64748b;
+  --color-border: #e2e8f0;
 }
 
 @layer base {
@@ -25,18 +25,25 @@
   body {
     background-color: #ffffff;
     color: #070019;
-    font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family:
+      var(--font-sans),
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      sans-serif;
     overflow-x: hidden;
   }
   ::selection {
-    background-color: rgba(111, 60, 255, 0.18);
+    background-color: rgba(111, 60, 255, 0.2);
     color: #070019;
   }
 }
 
 /* Atmospheric cloud floating animations for the Hero Chip */
 @keyframes float-cloud-left {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate3d(0, 0, 0);
   }
   50% {
@@ -45,7 +52,8 @@
 }
 
 @keyframes float-cloud-right {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate3d(0, 0, 0);
   }
   50% {
@@ -65,7 +73,8 @@
 
 /* Code block styles */
 .code-editor-font {
-  font-family: "Fragment Mono", "SF Mono", "Fira Code", Menlo, Monaco, Consolas, monospace;
+  font-family:
+    "Fragment Mono", "SF Mono", "Fira Code", Menlo, Monaco, Consolas, monospace;
 }
 
 /* Clean minimal scrollbars */
@@ -82,4 +91,24 @@
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #cbd5e1;
+}
+
+/* Utility to hide scrollbars */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
