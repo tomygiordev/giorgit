@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import styles from "./StorefrontStory.module.css";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowUpRight,
@@ -68,85 +69,15 @@ export default function StorefrontStory() {
   ];
 
   return (
-    <div className="flex flex-col w-full text-[#070019]">
+    <div className={styles.story}>
       {/* =========================================================================
           SECTION 1: Dynamic Kinetic Ticker / Ecosystem Strip
           Generous breathing room, crisp badge typography, interactive hover physics
           ========================================================================= */}
-      <section
-        id="tecnologia"
-        className="w-full py-10 sm:py-14 border-b border-slate-200/90"
-      >
-        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 sm:gap-8">
-          <div className="flex items-center gap-3 bg-purple-50/80 border border-purple-200/70 px-4 py-2 rounded-full">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#6f3cff] opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#6f3cff]" />
-            </span>
-            <p className="text-xs sm:text-sm font-semibold tracking-wide text-[#070019] uppercase font-mono">
-              Ecosistema Nativo · Sin Plugins Inestables
-            </p>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-slate-800">
-            {/* Mercado Pago */}
-            <motion.div
-              whileHover={{ y: -2, scale: 1.02 }}
-              transition={{ duration: 0.15 }}
-              className="flex items-center gap-2.5 font-bold tracking-tight text-sm sm:text-base px-4 py-2.5 rounded-xl bg-slate-50/90 border border-slate-200/80 hover:border-[#6f3cff]/50 hover:bg-white transition-all shadow-xs cursor-default"
-            >
-              <svg className="w-5 h-5 fill-current text-sky-600" viewBox="0 0 24 24">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14.93c-2.82.35-4.88-.97-5.06-1.07l.6-1.42c.1.06 1.83 1.15 4.09.84.97-.13 1.58-.65 1.54-1.32-.05-.83-.93-1.12-2.14-1.52-1.74-.58-3.03-1.27-2.92-2.89.1-1.46 1.4-2.45 3.39-2.61V5.5h1.5v1.44c1.98.24 3.77 1.25 3.86 1.3l-.62 1.44c-.11-.06-1.63-.92-3.41-.75-1.16.11-1.6.72-1.57 1.25.04.79.91 1.05 2.15 1.48 1.82.63 2.94 1.38 2.83 2.98-.12 1.67-1.57 2.58-3.74 2.8v1.49H13v-1.49z" />
-              </svg>
-              <span>Mercado Pago Pro</span>
-            </motion.div>
-
-            {/* Andreani */}
-            <motion.div
-              whileHover={{ y: -2, scale: 1.02 }}
-              transition={{ duration: 0.15 }}
-              className="flex items-center gap-2.5 font-bold tracking-tight text-sm sm:text-base px-4 py-2.5 rounded-xl bg-slate-50/90 border border-slate-200/80 hover:border-[#6f3cff]/50 hover:bg-white transition-all shadow-xs cursor-default"
-            >
-              <span className="font-mono text-[10px] bg-red-600 text-white px-2 py-0.5 rounded font-black tracking-wider">
-                API
-              </span>
-              <span>Andreani Envíos</span>
-            </motion.div>
-
-            {/* WhatsApp */}
-            <motion.div
-              whileHover={{ y: -2, scale: 1.02 }}
-              transition={{ duration: 0.15 }}
-              className="flex items-center gap-2.5 font-bold tracking-tight text-sm sm:text-base px-4 py-2.5 rounded-xl bg-slate-50/90 border border-slate-200/80 hover:border-[#6f3cff]/50 hover:bg-white transition-all shadow-xs cursor-default"
-            >
-              <svg className="w-5 h-5 fill-current text-emerald-600" viewBox="0 0 24 24">
-                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.19-.09-1.11-.55-1.28-.61-.17-.07-.3-.09-.43.1-.12.19-.48.61-.59.73-.11.12-.22.14-.4.05-.19-.09-.79-.29-1.5-.93-.56-.49-.93-1.11-1.04-1.3-.11-.19-.01-.29.08-.38.08-.09.19-.22.28-.33.09-.11.12-.19.19-.31.06-.12.03-.24-.02-.33-.05-.09-.43-1.03-.59-1.42-.15-.37-.31-.32-.43-.33h-.37c-.12 0-.33.05-.5.24s-.66.65-.66 1.58.68 1.83.77 1.96c.1.12 1.34 2.05 3.25 2.87.45.2.81.31 1.09.4.46.15.87.13 1.2.08.37-.06 1.11-.45 1.27-.89.15-.44.15-.81.11-.89-.05-.08-.17-.13-.36-.22" />
-              </svg>
-              <span>WhatsApp Direct</span>
-            </motion.div>
-
-            {/* Stripe */}
-            <motion.div
-              whileHover={{ y: -2, scale: 1.02 }}
-              transition={{ duration: 0.15 }}
-              className="flex items-center gap-2 font-bold tracking-tight text-sm sm:text-base px-4 py-2.5 rounded-xl bg-slate-50/90 border border-slate-200/80 hover:border-[#6f3cff]/50 hover:bg-white transition-all shadow-xs cursor-default"
-            >
-              <svg className="w-5 h-5 fill-current text-indigo-600" viewBox="0 0 24 24">
-                <path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697.5 12.836.5 6.408.5 2.126 3.844 2.126 9.438c0 5.485 4.316 7.643 8.356 9.17 2.457.914 3.292 1.633 3.292 2.617 0 .973-.89 1.52-2.278 1.52-2.392 0-5.323-1.127-7.23-2.178L3.25 26.2c2.09 1.09 5.372 1.8 8.423 1.8 6.74 0 11.233-3.23 11.233-9.088 0-5.46-3.957-7.794-8.93-9.762z" />
-              </svg>
-              <span>Stripe USD</span>
-            </motion.div>
-
-            {/* Additional trusted systems */}
-            <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-semibold text-slate-500 bg-slate-100/70 px-3.5 py-2 rounded-xl">
-              <span>OCA</span>
-              <span>·</span>
-              <span>CORREO ARGENTINO</span>
-              <span>·</span>
-              <span>AFIP FACTURACIÓN</span>
-            </div>
-          </div>
-        </div>
+      <section id="tecnologia" className={styles.integrations} aria-label="Integraciones de la tienda">
+        <p>Tu operación, conectada.<span>Pagos, envíos y conversaciones.</span></p>
+        <div className={styles.integrationNames}><span>mercado pago</span><span>stripe</span><span>Andreani</span><span>WhatsApp</span></div>
+        <p className={styles.integrationNote}>También OCA, Correo Argentino<br />y facturación integrada.</p>
       </section>
 
       {/* =========================================================================
@@ -155,38 +86,42 @@ export default function StorefrontStory() {
           ========================================================================= */}
       <section
         id="bento"
-        className="w-full py-18 sm:py-28"
+        className={styles.performance}
       >
         {/* Massive Staggered Headline */}
-        <div className="max-w-5xl mb-16 sm:mb-24">
+        <div className={styles.performanceHeading}>
           <span className="text-xs sm:text-sm font-mono font-bold tracking-widest text-[#6f3cff] uppercase">
-            La Realidad del Ecommerce Moderno
+            01 / La experiencia
           </span>
           <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-sans font-medium text-[#070019] tracking-tight leading-[0.95] mt-4">
             Tu tienda no compite
             <br />
             con otras webs.
             <span className="block font-serif italic font-normal text-[#6f3cff] mt-2 sm:mt-4">
-              Compite con el feed de Instagram.
+              Compite con el <span className={styles.gestureWord}>scroll.
+                <svg className={styles.gestureUnderline} viewBox="0 0 180 16" fill="none" aria-hidden="true" focusable="false">
+                  <path d="M3 10C45 3 114 2 175 7M33 14C79 8 123 8 153 10" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                </svg>
+              </span>
             </span>
           </h2>
           <p className="mt-8 text-lg sm:text-2xl text-slate-600 max-w-3xl leading-relaxed font-normal">
-            Si una página tarda más de 2 segundos en responder, el comprador vuelve al scroll y la venta se esfumó. Desarrollamos tiendas sobre Next.js 15 que cargan en milisegundos y ofrecen la agilidad táctil de una aplicación nativa.
+            Entre descubrir un producto y comprarlo hay unos pocos segundos. Hacemos que cada uno cuente: una tienda ágil, fácil de recorrer y de comprar.
           </p>
         </div>
 
         {/* Disruptive Interactive Benchmark Switcher */}
-        <div className="border border-slate-300/80 rounded-3xl p-6 sm:p-10 lg:p-12 bg-gradient-to-b from-slate-50/70 to-white shadow-md relative overflow-hidden">
+        <div className={styles.benchmark}>
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pb-8 border-b border-slate-200">
             <div>
               <div className="flex items-center gap-2">
                 <Gauge className="w-4 h-4 text-[#6f3cff]" />
                 <span className="text-xs sm:text-sm font-mono font-bold uppercase tracking-wider text-slate-500">
-                  Auditoría en Tiempo Real
+                  Demostración interactiva
                 </span>
               </div>
               <h3 className="text-2xl sm:text-3xl font-bold text-[#070019] mt-1.5">
-                Comparativa de rendimiento en dispositivos móviles
+                Menos espera. Más tienda.
               </h3>
             </div>
 
@@ -195,6 +130,7 @@ export default function StorefrontStory() {
               <button
                 type="button"
                 onClick={() => setSpeedMode("giorgit")}
+                aria-pressed={speedMode === "giorgit"}
                 className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-colors cursor-pointer relative z-10 ${
                   speedMode === "giorgit" ? "text-white" : "text-slate-700 hover:text-slate-900"
                 }`}
@@ -206,12 +142,13 @@ export default function StorefrontStory() {
                     className="absolute inset-0 bg-[#070019] rounded-xl shadow-sm -z-10"
                   />
                 )}
-                GiorgIT (Next.js Edge)
+                GiorgIT
               </button>
 
               <button
                 type="button"
                 onClick={() => setSpeedMode("generic")}
+                aria-pressed={speedMode === "generic"}
                 className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-colors cursor-pointer relative z-10 ${
                   speedMode === "generic" ? "text-white" : "text-slate-700 hover:text-slate-900"
                 }`}
@@ -223,17 +160,17 @@ export default function StorefrontStory() {
                     className="absolute inset-0 bg-[#070019] rounded-xl shadow-sm -z-10"
                   />
                 )}
-                Plataforma Convencional
+                Convencional
               </button>
             </div>
           </div>
 
           {/* Dynamic Metrics Row with distinct instrumented cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 pt-8">
+          <div className={styles.metrics}>
             {/* Metric 1 */}
             <motion.div
               layout
-              className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:shadow-md transition-shadow"
+              className={styles.metric}
             >
               <div className="flex items-center justify-between">
                 <span className="text-xs sm:text-sm text-slate-500 font-semibold uppercase tracking-wider">
@@ -276,7 +213,7 @@ export default function StorefrontStory() {
             {/* Metric 2 */}
             <motion.div
               layout
-              className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:shadow-md transition-shadow"
+              className={styles.metric}
             >
               <div className="flex items-center justify-between">
                 <span className="text-xs sm:text-sm text-slate-500 font-semibold uppercase tracking-wider">
@@ -319,7 +256,7 @@ export default function StorefrontStory() {
             {/* Metric 3 */}
             <motion.div
               layout
-              className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:shadow-md transition-shadow"
+              className={styles.metric}
             >
               <div className="flex items-center justify-between">
                 <span className="text-xs sm:text-sm text-slate-500 font-semibold uppercase tracking-wider">
@@ -362,7 +299,7 @@ export default function StorefrontStory() {
             {/* Metric 4 */}
             <motion.div
               layout
-              className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:shadow-md transition-shadow"
+              className={styles.metric}
             >
               <div className="flex items-center justify-between">
                 <span className="text-xs sm:text-sm text-slate-500 font-semibold uppercase tracking-wider">
@@ -404,24 +341,25 @@ export default function StorefrontStory() {
           </div>
         </div>
 
+        <p className={styles.demoNote}>Demostración ilustrativa: los valores muestran dos escenarios. No son una auditoría en vivo ni resultados garantizados.</p>
+
         {/* 3 Pillars of Craft (High-presence architectural cards) */}
-        <div className="mt-16 sm:mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 pt-12 border-t border-slate-200/80">
+        <div className={styles.craft}>
           <motion.div
-            whileHover={{ y: -4 }}
             transition={{ duration: 0.2 }}
-            className="p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-xs hover:shadow-lg transition-all flex flex-col justify-between"
+            className={styles.craftItem}
           >
             <div>
               <div className="flex items-center justify-between mb-4">
                 <span className="font-mono text-xs font-bold tracking-wider uppercase text-[#6f3cff] bg-purple-50 border border-purple-200/60 px-3 py-1 rounded-full">
-                  01 · Backend
+                  01 / Velocidad
                 </span>
                 <div className="w-8 h-8 rounded-full bg-purple-50 text-[#6f3cff] flex items-center justify-center">
                   <Zap className="w-4 h-4" />
                 </div>
               </div>
               <h4 className="text-xl sm:text-2xl font-bold text-[#070019]">
-                Arquitectura Server Components
+                Rápida desde el primer producto.
               </h4>
               <p className="mt-3 text-base text-slate-600 leading-relaxed">
                 Renderizado ultrarrápido desde el borde más cercano a tu comprador. Las imágenes se comprimen al instante y los catálogos de miles de productos se exploran sin pestañear.
@@ -430,21 +368,20 @@ export default function StorefrontStory() {
           </motion.div>
 
           <motion.div
-            whileHover={{ y: -4 }}
             transition={{ duration: 0.2 }}
-            className="p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-xs hover:shadow-lg transition-all flex flex-col justify-between"
+            className={styles.craftItem}
           >
             <div>
               <div className="flex items-center justify-between mb-4">
                 <span className="font-mono text-xs font-bold tracking-wider uppercase text-[#6f3cff] bg-purple-50 border border-purple-200/60 px-3 py-1 rounded-full">
-                  02 · Conversión
+                  02 / Compra
                 </span>
                 <div className="w-8 h-8 rounded-full bg-purple-50 text-[#6f3cff] flex items-center justify-center">
                   <ShieldCheck className="w-4 h-4" />
                 </div>
               </div>
               <h4 className="text-xl sm:text-2xl font-bold text-[#070019]">
-                Checkout sin fricción para LATAM
+                Comprar tiene que ser fácil.
               </h4>
               <p className="mt-3 text-base text-slate-600 leading-relaxed">
                 Validación instantánea de tarjetas, DNI, cuotas bancarias sin interés y código postal para cotizar Andreani en el momento. Menos clics equivalen directamente a más facturación.
@@ -453,21 +390,20 @@ export default function StorefrontStory() {
           </motion.div>
 
           <motion.div
-            whileHover={{ y: -4 }}
             transition={{ duration: 0.2 }}
-            className="p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-xs hover:shadow-lg transition-all flex flex-col justify-between"
+            className={styles.craftItem}
           >
             <div>
               <div className="flex items-center justify-between mb-4">
                 <span className="font-mono text-xs font-bold tracking-wider uppercase text-[#6f3cff] bg-purple-50 border border-purple-200/60 px-3 py-1 rounded-full">
-                  03 · Retención
+                  03 / Continuidad
                 </span>
                 <div className="w-8 h-8 rounded-full bg-purple-50 text-[#6f3cff] flex items-center justify-center">
                   <Clock className="w-4 h-4" />
                 </div>
               </div>
               <h4 className="text-xl sm:text-2xl font-bold text-[#070019]">
-                Recuperación activa por WhatsApp
+                La conversación sigue.
               </h4>
               <p className="mt-3 text-base text-slate-600 leading-relaxed">
                 Si un cliente deja un pedido a medias, se generan alertas inteligentes para retomar la conversación de venta directamente por chat con el carrito precargado.
@@ -479,124 +415,105 @@ export default function StorefrontStory() {
 
       {/* =========================================================================
           SECTION 3: The 0% Manifesto & Financial Reality
-          Sizable typographic authority, dynamic animated terminal
+          Compact, proportionate editorial scale & refined financial terminal
           ========================================================================= */}
       <section
         id="comparativa"
-        className="w-full py-18 sm:py-28 border-t border-slate-200/80"
+        className={styles.comparison}
       >
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Left Column: Bold Manifesto with grand scale */}
-          <div className="lg:col-span-6 flex flex-col gap-5">
-            <span className="text-xs sm:text-sm font-mono font-bold tracking-widest text-[#6f3cff] uppercase">
-              El Costo Oculto de Crecer
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          {/* Left Column: Bold Manifesto with balanced scale */}
+          <div className="lg:col-span-6 flex flex-col gap-4">
+            <span className="text-xs font-mono font-bold tracking-widest text-[#6f3cff] uppercase">
+              02 / Tu negocio, tus números
             </span>
-            <h2 className="text-4xl sm:text-6xl md:text-7xl font-sans font-medium text-[#070019] tracking-tight leading-[0.96]">
-              Las plataformas cerradas
-              <span className="block font-serif italic font-normal text-[#070019] mt-2 sm:mt-3">
-                te cobran un impuesto al éxito.
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-sans font-medium text-[#070019] tracking-tight leading-[1.08]">
+              Que crecer
+              <span className="block font-serif italic font-normal text-[#070019] mt-1.5">
+                te rinda a vos.
               </span>
             </h2>
-            <p className="text-base sm:text-xl text-slate-600 leading-relaxed mt-2">
-              La mayoría de los servicios te cobran un porcentaje fijo de cada venta que hacés. Cuanto más esfuerzo ponés en pauta publicitaria y mejor te va, más dinero te retienen mes a mes por el mismo servicio.
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+              Si tu plataforma cobra un porcentaje por venta, su costo crece con tu facturación. En GiorgIT acordamos el desarrollo. Lo que viene después es tuyo.
             </p>
 
-            {/* Sculpted 0% Card */}
+            {/* Sculpted 0% Card - Balanced & Harmonious */}
             <motion.div
-              whileHover={{ scale: 1.01 }}
-              className="mt-6 p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-purple-50/70 via-white to-purple-50/40 border border-purple-200/70 shadow-sm flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-8"
+              className={styles.zero}
             >
-              <span className="text-8xl sm:text-9xl md:text-[9.5rem] font-sans font-black tracking-tighter text-[#070019] leading-none select-none">
+              <span className="text-5xl sm:text-6xl md:text-7xl font-sans font-black tracking-tighter text-[#070019] leading-none select-none">
                 0%
               </span>
-              <div className="flex flex-col gap-2">
-                <span className="text-xs font-mono font-bold text-[#6f3cff] bg-[#6f3cff]/10 px-3 py-1 rounded-full uppercase tracking-wider w-fit">
+              <div className="flex flex-col gap-1">
+                <span className="text-[11px] font-mono font-bold text-[#6f3cff] bg-[#6f3cff]/10 px-2.5 py-0.5 rounded-full uppercase tracking-wider w-fit">
                   Para Siempre
                 </span>
-                <p className="text-2xl sm:text-3xl font-bold text-[#070019] leading-tight">
+                <p className="text-xl sm:text-2xl font-bold text-[#070019] leading-tight">
                   Comisión GiorgIT.
                 </p>
-                <p className="text-base sm:text-lg text-slate-600">
-                  Tu facturación es 100% tuya. Ni comisiones ocultas ni costos por transacción.
+                <p className="text-xs sm:text-sm text-slate-600">
+                  Sin cargos de GiorgIT por transacción. Las pasarelas de pago tienen sus propias comisiones.
                 </p>
               </div>
             </motion.div>
 
-            <div className="pt-4">
+            <div className="pt-2">
               <motion.a
-                whileHover={{ x: 4 }}
+                whileHover={{ x: 3 }}
                 whileTap={{ scale: 0.98 }}
                 href="#contacto"
-                className="inline-flex items-center gap-3 text-base font-bold text-white bg-[#070019] hover:bg-[#6f3cff] px-7 py-4 rounded-2xl transition-all shadow-md group cursor-pointer"
+                className="inline-flex items-center gap-2.5 text-sm font-bold text-white bg-[#070019] hover:bg-[#6f3cff] px-6 py-3 rounded-xl transition-all shadow-sm group cursor-pointer"
               >
-                <span>Conversar sobre tu migración sin costo</span>
-                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                <span>Conversemos sobre tu tienda</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </motion.a>
             </div>
           </div>
 
-          {/* Right Column: Live Interactive ROI Calculator Terminal */}
-          <div className="lg:col-span-6 bg-[#080a1a] text-white rounded-[32px] p-8 sm:p-12 lg:p-14 shadow-2xl border border-white/10 relative overflow-hidden">
-            {/* Luminous atmospheric cosmic orb */}
-            <div
-              className="absolute -right-20 -top-20 w-80 h-80 pointer-events-none rounded-full"
-              style={{
-                background: "radial-gradient(circle, rgba(111,60,255,0.45), transparent 70%)",
-              }}
-            />
-
-            <div className="relative z-10 flex flex-col gap-8">
+          {/* The calculator occupies the other half of the desktop grid. */}
+          <div className={styles.calculator} aria-labelledby="calculator-title">
+            <div className={styles.calculatorContent}>
               <div>
-                <div className="flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-[#a78bfa]" />
-                  <span className="text-xs sm:text-sm font-mono uppercase tracking-wider text-[#a78bfa] font-semibold">
-                    Auditoría Financiera en Vivo
-                  </span>
-                </div>
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mt-2 tracking-tight">
-                  ¿Cuánto dinero estás dejando en el camino?
+                <span className={styles.calculatorEyebrow}>Hacé la cuenta</span>
+                <h3 id="calculator-title" className="text-white mt-1 tracking-tight">
+                  ¿Cuánto representa esa comisión?
                 </h3>
               </div>
 
-              {/* Slider: Ventas Mensuales */}
-              <div className="flex flex-col gap-3 pt-2">
-                <div className="flex items-center justify-between text-sm sm:text-base">
-                  <span className="text-slate-300 font-medium">Ventas brutas mensuales</span>
-                  <motion.span
-                    key={sales}
-                    initial={{ scale: 1.05 }}
-                    animate={{ scale: 1 }}
-                    transition={{ duration: 0.2 }}
-                    className="font-mono font-bold text-white text-xl sm:text-2xl"
-                  >
+              <div>
+                <div className={styles.calculatorLabelRow}>
+                  <label htmlFor="monthly-sales">Ventas brutas mensuales</label>
+                  <output htmlFor="monthly-sales" className={styles.salesValue}>
                     ${formatMoney(sales)} ARS
-                  </motion.span>
+                  </output>
                 </div>
 
                 <input
+                  id="monthly-sales"
                   type="range"
+                  aria-valuetext={`${formatMoney(sales)} pesos por mes`}
                   min="2000000"
                   max="60000000"
                   step="1000000"
                   value={sales}
                   onChange={(e) => setSales(Number(e.target.value))}
-                  className="w-full h-2.5 bg-white/15 rounded-lg appearance-none cursor-pointer accent-[#a78bfa]"
+                  className={styles.salesRange}
+                  style={{ "--range-fill": `${((sales - 2000000) / 58000000) * 100}%` } as React.CSSProperties}
                 />
-                <div className="flex justify-between text-xs font-mono text-slate-500">
+                <div className={styles.rangeTicks} aria-hidden="true">
                   <span>$2M ARS</span>
                   <span>$30M ARS</span>
                   <span>$60M ARS</span>
                 </div>
               </div>
 
-              {/* Selector de Tasa con active pill animado */}
-              <div className="flex flex-col gap-3">
-                <div className="flex items-center justify-between text-sm sm:text-base">
-                  <span className="text-slate-300 font-medium">Comisión cobrada por tu plataforma actual</span>
-                  <span className="font-mono font-bold text-[#a78bfa] text-lg">{rate.toFixed(1)}%</span>
+              <div>
+                <div className={styles.calculatorLabelRow}>
+                  <span id="commission-label">Comisión de tu plataforma actual</span>
+                  <span className={styles.rateValue}>{rate.toFixed(1)}%</span>
                 </div>
 
-                <div className="grid grid-cols-4 gap-2.5">
+                <div className={styles.rateOptions} role="group" aria-labelledby="commission-label">
                   {[0.5, 1.0, 2.0, 3.0].map((val) => {
                     const isSelected = rate === val;
                     return (
@@ -604,17 +521,9 @@ export default function StorefrontStory() {
                         key={val}
                         type="button"
                         onClick={() => setRate(val)}
-                        className={`py-3 sm:py-3.5 rounded-xl text-sm sm:text-base font-mono font-bold transition-colors cursor-pointer relative ${
-                          isSelected ? "text-white" : "text-slate-300 hover:text-white bg-white/10 hover:bg-white/15"
-                        }`}
+                        aria-pressed={isSelected}
+                        className={styles.rateOption}
                       >
-                        {isSelected && (
-                          <motion.div
-                            layoutId="activeRatePill"
-                            transition={{ type: "spring", stiffness: 450, damping: 32 }}
-                            className="absolute inset-0 bg-[#6f3cff] rounded-xl shadow-md -z-10"
-                          />
-                        )}
                         {val.toFixed(1)}%
                       </button>
                     );
@@ -622,53 +531,46 @@ export default function StorefrontStory() {
                 </div>
               </div>
 
-              {/* Loss Metrics Panel */}
-              <div className="pt-6 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <motion.div
-                  layout
-                  className="p-5 sm:p-6 rounded-2xl bg-white/[0.05] border border-white/10 backdrop-blur-xs"
-                >
-                  <span className="text-xs sm:text-sm text-slate-400 font-medium block">
+              <div className={styles.calculatorResults} aria-live="polite" aria-atomic="true">
+                <div>
+                  <span id="annual-commission-label">
                     Comisión que pagás al año
                   </span>
-                  <span className="text-2xl sm:text-3xl xl:text-4xl font-mono font-bold text-rose-400 mt-2 block tracking-tight">
+                  <output aria-labelledby="annual-commission-label" htmlFor="monthly-sales">
                     ${formatMoney(yearlyCommission)}
-                  </span>
-                  <small className="text-xs text-slate-400 block mt-2">
+                  </output>
+                  <small>
                     Cálculo a 12 meses de facturación
                   </small>
-                </motion.div>
+                </div>
 
-                <motion.div
-                  layout
-                  className="p-5 sm:p-6 rounded-2xl bg-white/[0.05] border border-white/10 backdrop-blur-xs"
-                >
-                  <span className="text-xs sm:text-sm text-slate-400 font-medium block">
+                <div>
+                  <span id="three-year-commission-label">
                     Proyección a 3 años
                   </span>
-                  <span className="text-2xl sm:text-3xl xl:text-4xl font-mono font-bold text-[#a78bfa] mt-2 block tracking-tight">
+                  <output aria-labelledby="three-year-commission-label" htmlFor="monthly-sales">
                     ${formatMoney(threeYearsCommission)}
-                  </span>
-                  <small className="text-xs text-slate-400 block mt-2">
+                  </output>
+                  <small>
                     Dinero retenido solo por comisiones
                   </small>
-                </motion.div>
+                </div>
               </div>
 
               {/* Retention Visual Bar */}
-              <div className="p-4 rounded-xl bg-white/[0.03] border border-white/5 flex flex-col gap-2">
-                <div className="flex justify-between text-xs font-mono">
-                  <span className="text-emerald-400 font-bold">Con GiorgIT: 100% tuyo</span>
-                  <span className="text-rose-400">Otras: Pierdes ${(rate).toFixed(1)}% por venta</span>
+              <div className={styles.retention}>
+                <div className={styles.retentionLabels}>
+                  <span>Comisión GiorgIT: 0%</span>
+                  <span>Comisión actual: {rate.toFixed(1)}%</span>
                 </div>
-                <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden flex">
-                  <div className="h-full bg-emerald-500 transition-all duration-300" style={{ width: `${100 - rate * 2}%` }} />
-                  <div className="h-full bg-rose-500 transition-all duration-300" style={{ width: `${rate * 2}%` }} />
+                <div className="w-full bg-white/10 rounded-full h-1.5 overflow-hidden flex">
+                  <div className="h-full bg-emerald-500 transition-all duration-300" style={{ width: `${100 - rate}%` }} />
+                  <div className="h-full bg-rose-500 transition-all duration-300" style={{ width: `${rate}%` }} />
                 </div>
               </div>
 
-              <p className="text-sm text-slate-300 leading-relaxed">
-                Con GiorgIT pagás un único desarrollo y la plataforma es 100% tuya. La inversión se recupera en los primeros meses de operación.
+              <p className={styles.calculatorNote}>
+                Estimación con ventas y comisión constantes. No incluye el desarrollo, hosting ni cargos del medio de pago.
               </p>
             </div>
           </div>
@@ -681,16 +583,16 @@ export default function StorefrontStory() {
           ========================================================================= */}
       <section
         id="planes"
-        className="w-full py-18 sm:py-28 border-t border-slate-200/80"
+        className={styles.plans}
       >
-        <div className="max-w-3xl mb-16 sm:mb-24">
+        <div className={styles.plansHeading}>
           <span className="text-xs sm:text-sm font-mono font-bold tracking-widest text-[#6f3cff] uppercase">
-            Inversión Transparente
+            03 / La inversión
           </span>
           <h2 className="text-4xl sm:text-6xl md:text-7xl font-sans font-medium text-[#070019] tracking-tight leading-[0.98] mt-3">
             Una buena tienda.
             <span className="block font-serif italic font-normal text-[#070019] mt-2 sm:mt-3">
-              Las cuentas claras desde el inicio.
+              Las cuentas claras.
             </span>
           </h2>
           <p className="mt-6 text-lg sm:text-xl text-slate-600 max-w-2xl leading-relaxed">
@@ -699,12 +601,11 @@ export default function StorefrontStory() {
         </div>
 
         {/* Asymmetric 3-Tier Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        <div className={styles.planList}>
           {/* Tier 1: Starter Store */}
           <motion.div
-            whileHover={{ y: -4 }}
             transition={{ duration: 0.2 }}
-            className="lg:col-span-4 flex flex-col justify-between p-8 sm:p-10 rounded-[28px] border border-slate-200/90 bg-white hover:border-slate-300 shadow-sm hover:shadow-xl transition-all"
+            className={styles.plan}
           >
             <div>
               <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-600 bg-slate-100 px-3.5 py-1.5 rounded-full inline-block">
@@ -750,7 +651,6 @@ export default function StorefrontStory() {
 
             <div className="pt-6 border-t border-slate-200">
               <motion.a
-                whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 href={whatsappLink("Hola GiorgIT, me interesa consultar por el plan Starter Store.")}
                 target="_blank"
@@ -765,11 +665,10 @@ export default function StorefrontStory() {
 
           {/* Tier 2: Growth Scale (The Dominant Centerpiece) */}
           <motion.div
-            whileHover={{ y: -6 }}
             transition={{ duration: 0.2 }}
-            className="lg:col-span-4 flex flex-col justify-between p-8 sm:p-11 lg:p-12 rounded-[32px] border-2 border-[#6f3cff] bg-[#070019] text-white shadow-2xl relative lg:-translate-y-4 hover:shadow-purple-500/20 transition-all"
+            className={styles.featuredPlan}
           >
-            <div className="absolute -top-4 right-8 bg-[#6f3cff] text-white text-xs font-mono font-bold uppercase tracking-wider px-4 py-1.5 rounded-full shadow-lg flex items-center gap-1.5">
+            <div className={styles.popular}>
               <Sparkles className="w-3.5 h-3.5" />
               <span>Más Elegido</span>
             </div>
@@ -822,7 +721,6 @@ export default function StorefrontStory() {
 
             <div className="pt-6 border-t border-white/15">
               <motion.a
-                whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 href={whatsappLink("Hola GiorgIT, me interesa consultar por el plan Growth Scale.")}
                 target="_blank"
@@ -837,9 +735,8 @@ export default function StorefrontStory() {
 
           {/* Tier 3: Enterprise */}
           <motion.div
-            whileHover={{ y: -4 }}
             transition={{ duration: 0.2 }}
-            className="lg:col-span-4 flex flex-col justify-between p-8 sm:p-10 rounded-[28px] border border-slate-200/90 bg-white hover:border-slate-300 shadow-sm hover:shadow-xl transition-all"
+            className={styles.plan}
           >
             <div>
               <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-600 bg-slate-100 px-3.5 py-1.5 rounded-full inline-block">
@@ -881,7 +778,6 @@ export default function StorefrontStory() {
 
             <div className="pt-6 border-t border-slate-200">
               <motion.a
-                whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 href={whatsappLink("Hola GiorgIT, me interesa consultar por una solución Enterprise a medida.")}
                 target="_blank"
@@ -902,12 +798,12 @@ export default function StorefrontStory() {
           ========================================================================= */}
       <section
         id="faq"
-        className="w-full py-18 sm:py-28 border-t border-slate-200/80"
+        className={styles.faq}
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           <div className="lg:col-span-5 flex flex-col gap-4">
             <span className="text-xs sm:text-sm font-mono font-bold tracking-widest text-[#6f3cff] uppercase">
-              Respuestas Claras
+              04 / Antes de empezar
             </span>
             <h2 className="text-4xl sm:text-6xl font-sans font-medium text-[#070019] tracking-tight leading-[0.98]">
               Está bueno
@@ -916,7 +812,7 @@ export default function StorefrontStory() {
               </span>
             </h2>
             <p className="text-base sm:text-xl text-slate-600 leading-relaxed mt-2">
-              Una inversión importante en tu negocio merece respuestas honestas, directas y sin rodeos técnicos.
+              Las preguntas que aparecen cuando una tienda empieza a tomar forma.
             </p>
           </div>
 
@@ -930,6 +826,7 @@ export default function StorefrontStory() {
                     onClick={() => setOpenFaq(isOpen ? null : index)}
                     className="w-full flex items-center justify-between text-left py-2 group cursor-pointer"
                     aria-expanded={isOpen}
+                    aria-controls={`faq-answer-${index}`}
                   >
                     <span className="text-lg sm:text-xl font-bold text-[#070019] group-hover:text-[#6f3cff] transition-colors pr-6">
                       {item.q}
@@ -946,6 +843,7 @@ export default function StorefrontStory() {
                   <AnimatePresence initial={false}>
                     {isOpen && (
                       <motion.div
+                        id={`faq-answer-${index}`}
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
@@ -973,20 +871,16 @@ export default function StorefrontStory() {
           ========================================================================= */}
       <section
         id="contacto"
-        className="w-full rounded-[32px] sm:rounded-[40px] bg-[#070019] text-white p-8 sm:p-16 lg:p-20 relative overflow-hidden shadow-2xl my-10 sm:my-20"
+        className={styles.contact}
       >
-        <div
-          className="absolute top-0 right-0 w-[600px] h-[500px] pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse at 100% 0%, rgba(111, 60, 255, 0.32) 0%, transparent 65%)",
-          }}
-        />
-
+        <svg className={styles.contactFlourish} viewBox="0 0 116 30" fill="none" aria-hidden="true" focusable="false">
+          <path d="M1 16C19 16 30 9 46 13C61 18 75 23 96 14M96 14L89 13M96 14L92 20" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M109 2V12M104 7H114M105.5 3.5L112.5 10.5M112.5 3.5L105.5 10.5" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" />
+        </svg>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
           <div className="lg:col-span-6 flex flex-col gap-4">
             <span className="text-xs sm:text-sm font-mono uppercase tracking-wider text-[#a78bfa] font-bold">
-              Próximo Paso
+              ¿Lo hacemos?
             </span>
             <h2 className="text-4xl sm:text-6xl lg:text-7xl font-sans font-medium text-white tracking-tight leading-[1.02]">
               Hagamos lugar para
@@ -995,7 +889,7 @@ export default function StorefrontStory() {
               </span>
             </h2>
             <p className="text-base sm:text-xl text-[#f9f8ff]/85 leading-relaxed mt-3 max-w-lg">
-              Contanos qué vendés y qué tenés en mente. Te respondemos directamente por WhatsApp para coordinar una primera charla sin compromiso.
+              Contanos qué vendés y qué tenés en mente. La primera charla es para conocernos y entender qué necesitás.
             </p>
           </div>
 
@@ -1005,7 +899,7 @@ export default function StorefrontStory() {
               method="get"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-3xl bg-white/[0.05] border border-white/10 p-7 sm:p-10 flex flex-col gap-5 shadow-2xl backdrop-blur-sm"
+              className={styles.contactForm}
             >
               <div>
                 <label
@@ -1050,17 +944,16 @@ export default function StorefrontStory() {
               />
 
               <motion.button
-                whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.98 }}
                 type="submit"
                 className="mt-3 w-full inline-flex items-center justify-between bg-white hover:bg-[#f9f8ff] text-[#070019] font-bold text-base rounded-xl px-6 py-4.5 transition-all shadow-xl hover:shadow-violet-500/25 active:scale-[0.99] cursor-pointer"
               >
-                <span>Iniciar conversación por WhatsApp</span>
+                <span>Conversemos</span>
                 <ArrowUpRight className="w-5 h-5 text-[#6f3cff]" />
               </motion.button>
 
               <p className="text-xs text-[#f9f8ff]/60 text-center mt-1">
-                Se abre WhatsApp con tu mensaje listo para enviar directamente con los fundadores.
+                Se abre WhatsApp con tu mensaje listo. Vos decidís cuándo enviarlo.
               </p>
             </form>
           </div>
@@ -1071,7 +964,7 @@ export default function StorefrontStory() {
           SECTION 7: Clean Minimalist Light Footer
           Comfortable measure, legible links, balanced hierarchy
           ========================================================================= */}
-      <footer className="w-full py-12 sm:py-16 border-t border-slate-200/90 flex flex-col gap-8">
+      <footer className={styles.footer}>
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pb-6">
           <div>
             <span className="text-2xl font-bold font-sans tracking-tight text-[#070019] flex items-center gap-1.5">

@@ -34,6 +34,44 @@ export default function Hero() {
         }}
       />
 
+      {/* Fine frame details stay in the empty desktop margins. */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-px rounded-[inherit] border border-white/[0.08] pointer-events-none z-[2]"
+      />
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        viewBox="0 0 28 240"
+        fill="none"
+        className="hidden lg:block absolute left-6 top-[180px] h-60 w-7 text-[#c5b9ed] pointer-events-none z-[2]"
+      >
+        <path d="M1 0V240" stroke="currentColor" strokeOpacity="0.12" />
+        <path
+          d="M1 20H15M1 32H7M1 44H7M1 56H7M1 68H11M1 80H7M1 92H7M1 200H15M1 212H7M1 224H7"
+          stroke="currentColor"
+          strokeOpacity="0.28"
+        />
+        <path d="M1 120H25" stroke="currentColor" strokeOpacity="0.45" />
+        <circle cx="25" cy="120" r="1.5" fill="currentColor" fillOpacity="0.5" />
+      </svg>
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        viewBox="0 0 28 240"
+        fill="none"
+        className="hidden lg:block absolute right-6 top-[180px] h-60 w-7 text-[#c5b9ed] pointer-events-none z-[2]"
+      >
+        <path d="M27 0V240" stroke="currentColor" strokeOpacity="0.12" />
+        <path
+          d="M27 16H13M27 28H21M27 40H21M27 160H17M27 172H21M27 184H21M27 196H21M27 208H13M27 220H21"
+          stroke="currentColor"
+          strokeOpacity="0.28"
+        />
+        <path d="M27 96H3" stroke="currentColor" strokeOpacity="0.45" />
+        <circle cx="3" cy="96" r="1.5" fill="currentColor" fillOpacity="0.5" />
+      </svg>
+
       {/* Floating ambient bottom clouds */}
       <div className="absolute -bottom-10 -left-12 sm:-left-6 w-[340px] sm:w-[500px] md:w-[650px] pointer-events-none z-10 animate-cloud-left opacity-90 select-none">
         <Image
