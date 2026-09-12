@@ -11,7 +11,7 @@ export default function Hero() {
   return (
     <section
       id="soluciones"
-      className="w-full rounded-[24px] sm:rounded-[32px] overflow-hidden relative bg-[#070019] text-white shadow-2xl pt-6 pb-12 sm:pb-16 px-4 sm:px-8 flex flex-col items-center gap-10 md:gap-14"
+      className="w-full rounded-[24px] sm:rounded-[32px] overflow-hidden relative bg-[#070019] text-white shadow-2xl pt-6 pb-12 sm:pb-16 px-4 sm:px-10 lg:px-12 flex flex-col items-center gap-10 md:gap-14"
     >
       {/* Background with hero-bg.jpg & atmospheric deep indigo overlay */}
       <div className="absolute inset-0 pointer-events-none z-0">
@@ -103,7 +103,7 @@ export default function Hero() {
       <Navbar />
 
       {/* Hero Headline & CTA (NO kicker/eyebrow above the heading) */}
-      <div className="text-center max-w-4xl mx-auto flex flex-col items-center relative z-20">
+      <div className="text-center max-w-5xl mx-auto flex flex-col items-center relative z-20">
         <h1 className="flex flex-col items-center tracking-tight">
           <span className="font-sans font-medium text-4xl sm:text-6xl md:text-7xl text-[#f9f8ff] tracking-tight leading-[0.95]">
             Tu Negocio Necesita

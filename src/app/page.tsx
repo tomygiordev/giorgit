@@ -13,9 +13,9 @@ const patternBg = `url("data:image/svg+xml,${encodeURIComponent(svgPattern)}")`;
 export default function Home() {
   return (
     <div className="min-h-screen bg-white text-[#070019]">
-      <main className="max-w-[1440px] mx-auto p-3 sm:p-4 md:p-6 lg:p-8 flex flex-col gap-8 sm:gap-14">
+      <main className="max-w-[1600px] mx-auto p-3 sm:p-4 md:p-5 lg:p-6 flex flex-col gap-8 sm:gap-14">
         {/* Hero zone — pattern background fills the white margin around the card */}
-        <div className="relative lg:-mx-5 xl:-mx-7">
+        <div className="relative lg:-mx-2 xl:-mx-4">
           <div
             aria-hidden="true"
             className="absolute inset-0 -m-3 sm:-m-4 md:-m-6 lg:-my-8 lg:-mx-3 xl:-mx-1 pointer-events-none z-0"

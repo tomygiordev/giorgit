@@ -12,12 +12,80 @@ import {
   RotateCcw,
   Sparkles,
 } from "lucide-react";
-import StorefrontTab from "./showcase/StorefrontTab";
-import CheckoutTab from "./showcase/CheckoutTab";
-import MetricsTab from "./showcase/MetricsTab";
-import CodeTab from "./showcase/CodeTab";
 
 type TabKey = "storefront" | "checkout" | "metrics" | "code";
+
+function WireBox({
+  className = "",
+  label,
+}: {
+  className?: string;
+  label?: string;
+}) {
+  return (
+    <div
+      aria-hidden="true"
+      className={`border-2 border-dashed border-slate-300 bg-slate-100/70 rounded-xl flex items-center justify-center text-[11px] font-mono text-slate-400 uppercase tracking-wider ${className}`}
+    >
+      {label ? <span className="px-2 text-center">{label}</span> : null}
+    </div>
+  );
+}
+
+function EcommerceWireframe({ tab }: { tab: TabKey }) {
+  const titles: Record<TabKey, string> = {
+    storefront: "Wireframe — Storefront",
+    checkout: "Wireframe — Checkout",
+    metrics: "Wireframe — Métricas",
+    code: "Wireframe — API / Código",
+  };
+
+  return (
+    <div className="p-4 sm:p-6 lg:p-8 bg-white text-[#070019]">
+      <div className="flex items-center justify-between mb-5">
+        <span className="text-[11px] font-mono font-bold tracking-widest uppercase text-slate-400 border border-slate-200 bg-slate-50 px-3 py-1 rounded-full">
+          {titles[tab]}
+        </span>
+        <span className="text-[11px] font-mono text-slate-400">
+          Placeholder temporal
+        </span>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6">
+        {/* Left: media / content placeholder */}
+        <div className="lg:col-span-7 flex flex-col gap-4">
+          <WireBox className="w-full min-h-[280px] sm:min-h-[340px]" label="Imagen / Galería producto" />
+          <div className="grid grid-cols-4 gap-3">
+            <WireBox className="h-16 sm:h-20" label="Thumb" />
+            <WireBox className="h-16 sm:h-20" label="Thumb" />
+            <WireBox className="h-16 sm:h-20" label="Thumb" />
+            <WireBox className="h-16 sm:h-20" label="+3" />
+          </div>
+        </div>
+
+        {/* Right: purchase panel placeholder */}
+        <div className="lg:col-span-5 flex flex-col gap-3">
+          <WireBox className="h-6 w-2/3 !rounded-full" label="Badge" />
+          <WireBox className="h-9 w-full" label="Título producto" />
+          <WireBox className="h-4 w-1/2" label="Rating" />
+          <WireBox className="h-20 w-full" label="Precio / Cuotas" />
+          <WireBox className="h-10 w-full" label="Selector color" />
+          <WireBox className="h-12 w-full" label="Selector talle" />
+          <WireBox className="h-12 w-full !bg-[#070019]/5 !border-[#070019]/20" label="CTA comprar" />
+          <WireBox className="h-8 w-full" label="Garantías / Envío" />
+        </div>
+      </div>
+
+      {/* Bottom strip: product cards placeholder */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6">
+        <WireBox className="h-28" label="Card" />
+        <WireBox className="h-28" label="Card" />
+        <WireBox className="h-28 hidden md:flex" label="Card" />
+        <WireBox className="h-28 hidden md:flex" label="Card" />
+      </div>
+    </div>
+  );
+}
 
 export default function HeroShowcase() {
   const [activeTab, setActiveTab] = useState<TabKey>("storefront");
@@ -25,7 +93,7 @@ export default function HeroShowcase() {
   return (
     <div
       id="showcase"
-      className="w-full max-w-5xl lg:max-w-[1020px] bg-white text-slate-900 rounded-2xl sm:rounded-3xl shadow-[0_30px_90px_-20px_rgba(0,0,0,0.6),0_0_60px_rgba(111,60,255,0.22)] border border-slate-200/80 overflow-hidden relative z-20 transition-all"
+      className="w-full max-w-6xl lg:max-w-[1160px] bg-white text-slate-900 rounded-2xl sm:rounded-3xl shadow-[0_30px_90px_-20px_rgba(0,0,0,0.6),0_0_60px_rgba(111,60,255,0.22)] border border-slate-200/80 overflow-hidden relative z-20 transition-all"
     >
       {/* Authentic Browser Chrome Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 bg-[#f8f8fb] px-4 sm:px-6 py-2.5 sm:py-3 gap-2 sm:gap-4">
@@ -150,15 +218,8 @@ export default function HeroShowcase() {
         </div>
       </div>
 
-      {/* Tab Panels */}
-      {activeTab === "storefront" && (
-        <StorefrontTab onGoToCheckout={() => setActiveTab("checkout")} />
-      )}
-      {activeTab === "checkout" && (
-        <CheckoutTab onSuccessNavigate={() => setActiveTab("metrics")} />
-      )}
-      {activeTab === "metrics" && <MetricsTab />}
-      {activeTab === "code" && <CodeTab />}
+      {/* Tab Panels — wireframe temporal */}
+      <EcommerceWireframe tab={activeTab} />
     </div>
   );
 }
