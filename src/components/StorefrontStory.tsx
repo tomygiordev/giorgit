@@ -39,6 +39,9 @@ export default function StorefrontStory() {
   const [brand, setBrand] = useState("");
   const [project, setProject] = useState("Quiero una tienda nueva desde cero");
 
+  // Decorative strokes draw once; their static paths remain visible without JS.
+  const [drawnAccents, setDrawnAccents] = useState({ zero: false, brand: false });
+
   // Calculated financial metrics
   const monthlyCommission = (sales * rate) / 100;
   const yearlyCommission = monthlyCommission * 12;
@@ -440,8 +443,20 @@ export default function StorefrontStory() {
             <motion.div
               className={styles.zero}
             >
-              <span className="text-5xl sm:text-6xl md:text-7xl font-sans font-black tracking-tighter text-[#070019] leading-none select-none">
+              <span className={`${styles.zeroFigure} text-5xl sm:text-6xl md:text-7xl font-sans font-black tracking-tighter text-[#070019] leading-none select-none`}>
                 0%
+                <motion.svg
+                  className={`${styles.zeroCircle} ${drawnAccents.zero ? styles.accentDrawn : ""}`}
+                  viewBox="0 0 144 104"
+                  preserveAspectRatio="none"
+                  fill="none"
+                  aria-hidden="true"
+                  focusable="false"
+                  viewport={{ once: true, amount: 0.7 }}
+                  onViewportEnter={() => setDrawnAccents((current) => ({ ...current, zero: true }))}
+                >
+                  <path pathLength="1" d="M123 9C92 1 45 1 18 15C-1 27 0 74 19 89C42 107 108 103 129 88C148 73 145 29 130 16C122 10 111 7 99 6" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
+                </motion.svg>
               </span>
               <div className="flex flex-col gap-1">
                 <span className="text-[11px] font-mono font-bold text-[#6f3cff] bg-[#6f3cff]/10 px-2.5 py-0.5 rounded-full uppercase tracking-wider w-fit">
@@ -883,7 +898,20 @@ export default function StorefrontStory() {
             <h2 className="text-4xl sm:text-6xl lg:text-7xl font-sans font-medium text-white tracking-tight leading-[1.02]">
               Hagamos lugar para
               <span className="block font-serif italic font-normal text-white mt-2 sm:mt-3">
-                tu marca.
+                <span className={styles.brandWord}>tu marca.
+                  <motion.svg
+                    className={`${styles.brandUnderline} ${drawnAccents.brand ? styles.accentDrawn : ""}`}
+                    viewBox="0 0 230 18"
+                    preserveAspectRatio="none"
+                    fill="none"
+                    aria-hidden="true"
+                    focusable="false"
+                    viewport={{ once: true, amount: 0.7 }}
+                    onViewportEnter={() => setDrawnAccents((current) => ({ ...current, brand: true }))}
+                  >
+                    <path pathLength="1" d="M3 12C55 4 153 3 226 7M154 14C177 11 201 11 215 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
+                  </motion.svg>
+                </span>
               </span>
             </h2>
             <p className="text-base sm:text-xl text-[#f9f8ff]/85 leading-relaxed mt-3 max-w-lg">

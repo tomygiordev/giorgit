@@ -72,6 +72,8 @@
 .comparison > div > div:first-child > p { font-size: 14px; max-width: 450px; line-height: 1.8; }
 .zero { display: flex; align-items: center; gap: 24px; margin-top: 10px; padding: 20px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .zero > span { font-size: 72px; font-weight: 450; letter-spacing: -.09em; }
+.zeroFigure { position: relative; flex-shrink: 0; }
+.zeroCircle { position: absolute; left: -10px; top: -11px; width: calc(100% + 20px); height: calc(100% + 22px); color: #9c78c2; pointer-events: none; }
 .zero > div > span { font-size: 9px; letter-spacing: .06em; border: 0; background: none; padding: 0; border-radius: 0; font-weight: 500; }
 .zero > div > p:first-of-type { font-size: 19px; font-weight: 500; }
 .zero > div > p:last-of-type { font-size: 11px; line-height: 1.5; max-width: 240px; }
@@ -159,6 +161,8 @@
 .contactFlourish { position: absolute; left: 54px; bottom: 22px; width: 116px; height: 30px; color: #a890bc; opacity: .65; pointer-events: none; }
 .contact > div { gap: 64px; }
 .contact h2 { font-size: clamp(38px, 4.6vw, 62px); }
+.brandWord { position: relative; display: inline-block; white-space: nowrap; }
+.brandUnderline { position: absolute; left: -1%; bottom: -.13em; width: 102%; height: .24em; color: #e0b9a5; pointer-events: none; }
 .contact > div > div:first-child > span { font-size: 10px; font-weight: 400; letter-spacing: .1em; }
 .contact > div > div:first-child > p { font-size: 14px; line-height: 1.8; max-width: 360px; color: #c1b7c8; }
 .contactForm { padding: 0; display: flex; flex-direction: column; gap: 24px; }
@@ -168,6 +172,7 @@
 .contactForm > div:focus-within label { color: #e4ccff; }
 .contactForm select { padding-right: 22px; }
 .contactForm button { background: #f5f0f8; color: #191020; box-shadow: none; border-radius: 4px; font-size: 14px; font-weight: 500; padding: 17px 20px; margin-top: 4px; }
+.contactForm button:is(:hover, :focus-visible) { background: #fff7f2; box-shadow: 0 4px 18px #e0b9a51a; }
 .contactForm p { text-align: left; font-size: 10px; line-height: 1.6; color: #b6aabd; margin: -10px 0 0; }
 .footer { display: flex; flex-direction: column; gap: 22px; padding: 24px 0 16px; }
 .footer > div:first-child { padding-bottom: 16px; }
@@ -252,6 +257,11 @@
   .footer { padding: 12px 4px 20px; }
   .footer > div:last-child { align-items: flex-start; gap: 18px; }
   .footer nav { flex-wrap: wrap; column-gap: 23px; row-gap: 14px; font-size: 11px; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .accentDrawn path { stroke-dasharray: 1; animation: drawAccent .95s cubic-bezier(.22, .61, .36, 1) both; }
+  @keyframes drawAccent { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
 }
 
 @media (prefers-reduced-motion: reduce) {
