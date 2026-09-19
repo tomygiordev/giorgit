@@ -1,0 +1,105 @@
+.showcase { width: 100%; max-width: 1100px; position: relative; z-index: 20; overflow: hidden; border-radius: 18px; background: #fff; color: #21182b; text-align: left; box-shadow: 0 24px 65px #07001935; }
+.showcase :is(button, input, [tabindex]):focus-visible { outline: 2px solid #7649bc; outline-offset: 4px; }
+.showcase button { cursor: pointer; }
+.showcase button:disabled { cursor: default; opacity: .45; }
+.header { display: flex; justify-content: space-between; gap: 12px; padding: 11px 20px; background: #f4f1f6; border-bottom: 1px solid #e8e1ec; font-size: 11px; color: #6c6374; }
+.header > span:first-child { color: #382b45; font-weight: 500; }
+.navigation { display: flex; justify-content: space-between; gap: 18px; padding: 0 20px; border-bottom: 1px solid #e8e1ec; }
+.tabs { display: flex; gap: 24px; }
+.tabs button { display: flex; align-items: center; gap: 8px; border-bottom: 2px solid transparent; padding: 13px 0 11px; white-space: nowrap; color: #766d7f; font-size: 12px; }
+.tabs button[aria-selected="true"] { color: #432958; border-bottom-color: #8056a3; font-weight: 600; }
+.tabs button span { font-size: 9px; font-variant-numeric: tabular-nums; opacity: .65; }
+.reset { display: inline-flex; align-items: center; gap: 7px; font-size: 10px; color: #776c80; }
+.panel { min-height: 380px; }
+.product { display: grid; grid-template-columns: 1fr 1fr; }
+.artwork { position: relative; display: grid; place-items: center; min-height: 380px; overflow: hidden; background: #eeebe6; }
+.caption { position: absolute; top: 20px; left: 22px; font-size: 8px; letter-spacing: .14em; color: #746b65; }
+.artworkNote { position: absolute; bottom: 18px; right: 22px; font-family: var(--font-serif), serif; font-size: 18px; font-style: italic; color: #756757; }
+.notebook { position: relative; height: 236px; width: 168px; transform: rotate(-9deg); border-radius: 3px 12px 12px 3px; background: #e4d8c4; box-shadow: 10px 17px 19px #4b40322c, 2px 3px 0 #baa995; }
+.cover { position: absolute; inset: 0 0 5px -3px; border-radius: 3px 10px 9px 3px; background: var(--cover); border-left: 8px solid #00000017; color: #f5ead8; transition: background .2s; }
+.cover::after { content: ""; position: absolute; left: 5px; top: 0; bottom: 0; width: 1px; background: #ffffff18; }
+.cover > span { display: block; margin: 32px 0 0 20px; font-family: var(--font-serif), serif; font-size: 32px; line-height: .98; }
+.cover > small { position: absolute; bottom: 20px; left: 20px; font-size: 6px; letter-spacing: .16em; }
+.elastic { position: absolute; right: 21px; top: -2px; bottom: 3px; width: 5px; background: #2c223955; box-shadow: 1px 0 2px #00000017; }
+.productInfo { padding: 24px 34px 18px; }
+.eyebrow { display: block; font-size: 9px; color: #75667c; letter-spacing: .09em; text-transform: uppercase; }
+.showcase h2 { margin: 10px 0 10px; font-size: clamp(24px, 2.3vw, 32px); line-height: 1.08; font-weight: 500; letter-spacing: -.045em; }
+.showcase h2 em { font-family: var(--font-serif), serif; font-weight: 400; font-size: 1.14em; }
+.productInfo > p { color: #7b717e; font-size: 11px; line-height: 1.6; }
+.price { display: block; margin: 14px 0; font-weight: 500; font-size: 24px; letter-spacing: -.045em; }
+.price small, .total small { font-size: 10px; font-weight: 400; letter-spacing: 0; color: #75667c; }
+.colors { display: flex; gap: 9px; margin-bottom: 18px; }
+.colors legend { margin-bottom: 8px; font-size: 11px; color: #776b7b; }
+.colors legend strong { font-weight: 500; color: #342639; }
+.colors button { display: grid; place-items: center; width: 32px; height: 32px; border: 3px solid white; border-radius: 50%; background: var(--swatch); color: white; box-shadow: 0 0 0 1px #e2dbe5; }
+.colors button[aria-pressed="true"] { box-shadow: 0 0 0 1px #6c507b; }
+.primary { display: flex; justify-content: space-between; align-items: center; gap: 16px; width: 100%; min-height: 44px; padding: 11px 16px; border-radius: 5px; background: #302139; color: #fff; font-size: 12px; font-weight: 500; transition: background .2s; }
+.primary:hover:not(:disabled) { background: #563367; }
+.productInfo .help { margin-top: 10px; font-size: 10px; color: #75667c; }
+.footer { padding: 9px 20px; border-top: 1px solid #e8e1ec; color: #75667c; font-size: 10px; line-height: 1.5; }
+.checkout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; padding: 24px 30px; min-height: 380px; }
+.checkout h2 { margin-bottom: 24px; }
+.cartItem { display: flex; align-items: center; gap: 15px; padding: 17px 0; border-top: 1px solid #e8e1ec; border-bottom: 1px solid #e8e1ec; }
+.cartItem > strong { margin-left: auto; font-size: 12px; font-weight: 500; }
+.cartItem > div strong, .cartItem > div span { display: block; font-size: 11px; }
+.cartItem > div strong { font-weight: 500; }
+.cartItem > div span { font-size: 10px; color: #75667c; margin-top: 4px; }
+.miniCover { width: 30px; height: 42px; border-radius: 1px 4px 4px 1px; border-left: 3px solid #00000020; }
+.delivery { display: flex; flex-direction: column; gap: 8px; margin-top: 20px; }
+.delivery legend { margin-bottom: 8px; font-size: 11px; font-weight: 500; }
+.delivery label { display: flex; align-items: center; gap: 10px; font-size: 11px; cursor: pointer; min-height: 44px; }
+.delivery input { accent-color: #704581; width: 16px; height: 16px; }
+.delivery small { display: block; color: #75667c; font-size: 9px; margin-top: 2px; }
+.summary { align-self: center; padding: 25px; background: #f4f0f6; border-radius: 8px; }
+.summary dl { margin: 24px 0; }
+.summary dl > div, .receipt dl > div { display: flex; justify-content: space-between; gap: 12px; margin: 14px 0; font-size: 11px; }
+.summary dt, .receipt dt { color: #75667c; }
+.summary .total { border-top: 1px solid #ded3e5; padding-top: 18px; margin-top: 20px; font-size: 19px; }
+.summary .total dt { color: #3f2d49; font-size: 12px; }
+.summary > p { margin-top: 13px; font-size: 10px; color: #75667c; line-height: 1.7; }
+.empty { padding: 25px 0; font-size: 13px; color: #766780; }
+.textButton { display: inline-flex; align-items: center; gap: 15px; padding: 8px 0; margin-top: 12px; border-bottom: 1px solid #ab93b7; color: #60416e; font-size: 11px; }
+.orderView { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 36px; padding: 26px 36px; min-height: 380px; }
+.orderView > div:first-child > p { margin-top: 14px; max-width: 320px; font-size: 12px; line-height: 1.6; color: #75667c; }
+.receipt { border: 1px solid #e6deeb; border-bottom: 3px double #e6deeb; padding: 20px; }
+.receipt h3 { margin-top: 16px; font-weight: 500; font-size: 15px; letter-spacing: -.025em; }
+.receipt p { margin: 10px 0 18px; color: #75667c; font-size: 12px; line-height: 1.6; }
+.receipt dl { padding: 9px 0; border-top: 1px solid #ebe4ef; border-bottom: 1px solid #ebe4ef; }
+.confirmed { display: flex; align-items: center; gap: 7px; margin: 14px 0 10px; font-size: 10px; color: #4c6953; }
+.receipt > small { display: block; color: #75667c; font-size: 9px; }
+@media (max-width: 767px) {
+  .header { padding: 13px 17px; font-size: 9px; }
+  .navigation { padding: 0 17px; gap: 8px; }
+  .tabs { gap: 20px; }
+  .tabs button { font-size: 11px; }
+  .reset span, .tabs button span { display: none; }
+  .productInfo { padding: 32px 25px; }
+  .notebook { transform: rotate(-9deg) scale(.82); }
+  .caption { left: 18px; font-size: 7px; }
+  .artworkNote { right: 16px; font-size: 16px; }
+  .checkout { gap: 24px; padding: 28px; }
+  .orderView { padding: 35px 30px; gap: 30px; }
+}
+@media (max-width: 559px) {
+  .showcase { border-radius: 12px; }
+  .header { display: block; }
+  .header > span:last-child { display: block; margin-top: 5px; }
+  .navigation { padding: 0 14px; }
+  .tabs { gap: 18px; }
+  .tabs button { padding: 15px 0 13px; font-size: 11px; }
+  .reset { margin-left: auto; }
+  .product { grid-template-columns: 1fr; }
+  .artwork { min-height: 235px; }
+  .notebook { transform: rotate(-9deg) scale(.63); }
+  .caption { top: 16px; }
+  .artworkNote { bottom: 13px; }
+  .productInfo { padding: 24px; }
+  .showcase h2 { font-size: 29px; }
+  .price { margin: 17px 0; }
+  .colors { margin-bottom: 20px; }
+  .footer { padding: 12px 18px; font-size: 9px; }
+  .checkout, .orderView { grid-template-columns: 1fr; padding: 25px 23px; gap: 27px; }
+  .summary { padding: 22px; }
+  .orderView > div:first-child > p { max-width: none; }
+}
+@media (prefers-reduced-motion: reduce) { .showcase * { transition: none !important; } }
